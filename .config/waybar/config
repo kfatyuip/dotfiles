@@ -52,7 +52,7 @@
     },
     "interval": 1,
     "format": "  {usage:2}%",
-    "on-click": "foot -e btop"
+    "on-click": "kitty -e btop"
   },
   "temperature": {
     "thermal-zone": 3,
