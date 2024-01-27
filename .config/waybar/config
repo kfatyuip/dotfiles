@@ -5,7 +5,7 @@
   "margin-top": 5,
   "margin-right": 5,
   "margin-left": 5,
-  "height": 28,
+  "height": 36,
 
   // Modules
   "modules-left": [
@@ -47,9 +47,9 @@
   },
   "cpu": {
     "states": {
-      "good": 0,
-      "warning": 70,
-      "critical": 90
+       "good": 0,
+       "warning": 70,
+       "critical": 90
     },
     "interval": 1,
     "format": "  {usage:2}%",
@@ -65,9 +65,9 @@
   },
   "memory": {
     "states": {
-      "good": 0,
-      "warning": 70,
-      "critical": 85
+       "good": 0,
+       "warning": 70,
+       "critical": 85
     },
     "interval": 5,
     "format": "  {}%",
@@ -75,14 +75,14 @@
   },
   "disk#one": {
     "states": {
-    "good": 0,
-			"warning": 70,
-			"critical": 95
-		},
-		"interval": 5,
-		"format": "  {percentage_used:2}%",
-		"path": "/"
+      "good": 0,
+	  "warning": 70,
+	  "critical": 95
 	},
+	"interval": 5,
+	"format": "  {percentage_used:2}%",
+	"path": "/"
+  },
   "custom/spotify": {
       "interval": 1,
       "return-type": "json",
@@ -94,30 +94,30 @@
   "hyprland/workspaces": {
     "disable-scroll": true,
     "format": "{name}",
-      "format-icons": {
+       "format-icons": {
     "urgent": "",
     "focused": "",
     "default": ""
-      }
+       }
   },
 
   "tray": {
-    "icon-size": 18,
+    "icon-size": 16,
     "spacing": 8
   },
   "idle_inhibitor": {
     "format": "{icon}",
     "format-icons": {
-      "activated": "",
-      "deactivated": ""
+       "activated": "",
+       "deactivated": ""
     }
   },
   "backlight": {
     "format": "{icon} {percent}%",
     "format-icons": [
-      "󰃜",
-      "󰃛",
-      "󰃚"
+       "󰃜",
+       "󰃛",
+       "󰃚"
     ],
     "on-scroll-up": "brightnessctl set +5%",
     "on-scroll-down": "brightnessctl set 5%-"
@@ -130,22 +130,22 @@
     "format-source": " {volume}%",
     "format-source-muted": " ",
     "format-icons": {
-      "headphone": "󰋋 ",
-      "hands-free": " ",
-      "headset": "󰋎 ",
-      "phone": " ",
-      "portable": " ",
-      "car": " ",
-      "default": [
-    "󰕿 ",
-    "󰖀 ",
-    "󰕾 "
-      ]
+       "headphone": "󰋋 ",
+       "hands-free": " ",
+       "headset": "󰋎 ",
+       "phone": " ",
+       "portable": " ",
+       "car": " ",
+       "default": [
+          "󰕿  ",
+          "󰖀  ",
+          "󰕾  "
+       ]
     },
     "on-click": "mate-volume-control"
   },
   "network": {
-    "format-wifi": "   {essid} ({signalStrength}%) ",
+    "format-wifi": "   {essid} ({signalStrength}%) {ipaddr}",
     "format-ethernet": "  {ifname} {ipaddr}",
     "format-disconnected": "Disconnected",
     "tooltip-format": "{ifname}",
@@ -163,17 +163,17 @@
   },
   "battery": {
     "states": {
-      "good": 100,
-      "warning": 30,
-      "critical": 15
+       "good": 100,
+       "warning": 30,
+       "critical": 15
     },
     "format": "{icon}  {capacity}%",
     "format-icons": [
-      " ",
-      " ",
-      " ",
-      " ",
-      " "
+       " ",
+       " ",
+       " ",
+       " ",
+       " "
     ]
   },
   "custom/powermenu": {
