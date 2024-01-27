@@ -18,7 +18,8 @@
     "custom/separator",
     "disk#one",
     "custom/separator",
-    "custom/spotify"
+    "battery",
+    "custom/separator",
   ],
   "modules-center": [
     "hyprland/workspaces",
@@ -30,8 +31,6 @@
     // "idle_inhibitor",
     // "backlight",
     "pulseaudio",
-    "custom/separator",
-    "battery",
     "custom/separator",
     "network",
     "custom/separator",
