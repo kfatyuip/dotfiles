@@ -141,7 +141,7 @@
           "󰕾  "
        ]
     },
-    "on-click": "mate-volume-control"
+    "on-click": "pavucontrol"
   },
   "network": {
     "format-wifi": "   {essid} ({signalStrength}%) {ipaddr}",
