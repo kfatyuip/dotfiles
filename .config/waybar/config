@@ -18,7 +18,7 @@
     "custom/separator",
     "disk#one",
     "custom/separator",
-    "battery",
+    "custom/vpn",
     "custom/separator",
   ],
   "modules-center": [
@@ -34,7 +34,7 @@
     "custom/separator",
     "network",
     "custom/separator",
-    "custom/vpn",
+    "battery",
     "custom/separator",
     "custom/powermenu",
     "custom/separator"
@@ -144,7 +144,7 @@
     "on-click": "pavucontrol"
   },
   "network": {
-    "format-wifi": "   {essid} ({signalStrength}%) {ipaddr}",
+    "format-wifi": "   {essid} ({signalStrength}%) ",
     "format-ethernet": "  {ifname} {ipaddr}",
     "format-disconnected": "Disconnected",
     "tooltip-format": "{ifname}",
