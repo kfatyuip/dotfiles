@@ -44,6 +44,7 @@
   // Module Config
   "custom/archicon": {
     "format": "   ",
+    "on-click": "kitty -e neofetch",
     "tooltip": false
   },
   "clock": {
