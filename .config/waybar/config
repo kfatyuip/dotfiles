@@ -9,7 +9,7 @@
 
   // Modules
   "modules-left": [
-    "hyprland/workspaces",
+    "custom/archicon",
     "custom/separator",
     "cpu",
     "temperature",
@@ -22,6 +22,7 @@
     "custom/separator",
   ],
   "modules-center": [
+    "hyprland/workspaces",
     "clock",
     "hyprland/window"
   ],
@@ -41,6 +42,10 @@
   ],
 
   // Module Config
+  "custom/archicon": {
+    "format": "   ",
+    "tooltip": false
+  },
   "clock": {
     "format": "  {:%b %d %a %H:%M}"
   },
