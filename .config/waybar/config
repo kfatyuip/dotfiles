@@ -16,8 +16,6 @@
     "custom/separator",
     "memory",
     "custom/separator",
-    "backlight",
-    "custom/separator",    
     "custom/vpn",
     "custom/separator",
   ],
@@ -30,6 +28,8 @@
     "custom/separator",
     "pulseaudio",
     "custom/separator",
+    "backlight",
+    "custom/separator",    
     "network",
     "custom/separator",
     "battery",
@@ -97,7 +97,7 @@
     }
   },
   "tray": {
-    "icon-size": 16,
+    "icon-size": 18,
     "spacing": 8
   },
   "idle_inhibitor": {
@@ -118,12 +118,12 @@
     "on-scroll-down": "brightnessctl set 5%-"
   },
   "pulseaudio": {
-    "format": "{icon} {volume}%    {format_source}",
-    "format-bluetooth": " {icon} {volume}%  {format_source}",
-    "format-bluetooth-muted": "   {icon}  {format_source}",
-    "format-muted": "   {format_source}",
-    "format-source": "  {volume}%",
-    "format-source-muted": " ",
+    "format": "{icon} {volume}% {format_source}",
+    "format-bluetooth": "{icon} {volume}%  {format_source}",
+    "format-bluetooth-muted": "  {icon}  {format_source}",
+    "format-muted": "  {format_source}",
+    "format-source": " {volume}%",
+    "format-source-muted": "",
     "format-icons": {
       "headphone": "󰋋 ",
       "hands-free": " ",
@@ -140,7 +140,7 @@
     "on-click": "pavucontrol"
   },
   "network": {
-    "format-wifi": "   {essid} ",
+    "format-wifi": "   {essid}",
     "format-ethernet": "  {ifname} {ipaddr}",
     "format-disconnected": "Disconnected",
     "tooltip-format": "{ifname}",
@@ -151,7 +151,7 @@
     "on-click": "nm-connection-editor"
   },
   "custom/vpn": {
-    "format": "  {icon} ",
+    "format": "{icon} ",
     "exec": "$HOME/.config/waybar/modules/vpn.sh",
     "return-type": "json",
     "interval": 5,
