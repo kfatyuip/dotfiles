@@ -5,22 +5,24 @@
   "margin-top": 5,
   "margin-right": 5,
   "margin-left": 5,
-  "height": 36,
+  "height": 38,
 
   // Modules
   "modules-left": [
-    "clock",
+    "hyprland/workspaces",
     "custom/separator",
     "cpu",
     "temperature",
     "custom/separator",
     "memory",
     "custom/separator",
+    "disk#one",
+    "custom/separator",
     "custom/vpn",
     "custom/separator",
   ],
   "modules-center": [
-    "hyprland/workspaces",
+    "clock",
     "hyprland/window"
   ],
   "modules-right": [
@@ -40,7 +42,7 @@
 
   // Module Config
   "clock": {
-    "format": "  {:%a %d %b %H:%M}"
+    "format": "  {:%b %d %a %H:%M}"
   },
   "cpu": {
     "states": {
@@ -97,7 +99,7 @@
     }
   },
   "tray": {
-    "icon-size": 18,
+    "icon-size": 16,
     "spacing": 8
   },
   "idle_inhibitor": {
@@ -151,7 +153,7 @@
     "on-click": "nm-connection-editor"
   },
   "custom/vpn": {
-    "format": "{icon} ",
+    "format": " {icon} ",
     "exec": "$HOME/.config/waybar/modules/vpn.sh",
     "return-type": "json",
     "interval": 5,

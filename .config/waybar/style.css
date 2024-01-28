@@ -44,6 +44,10 @@ window#waybar {
   padding: 0;
 }
 
+.modules-center {
+  font-size: 10px;
+}
+
 
 /* Base styling for modules */
 #workspaces,
