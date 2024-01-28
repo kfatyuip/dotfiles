@@ -50,7 +50,6 @@ window#waybar {
 
 /* Base styling for modules */
 #workspaces,
-#windows,
 #mode,
 #window,
 #idle_inhibitor,
