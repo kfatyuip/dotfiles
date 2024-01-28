@@ -6,6 +6,7 @@
   "margin-right": 5,
   "margin-left": 5,
   "height": 38,
+  "spacing": 5,
 
   // Modules
   "modules-left": [
