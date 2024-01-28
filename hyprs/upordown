@@ -1,0 +1,5 @@
+#!/bin/bash
+
+ip link show wg0 | grep -q 'wg0' \
+&& doas wg-quick down wg0 \
+|| doas wg-quick up wg0

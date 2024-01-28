@@ -47,9 +47,9 @@
   },
   "cpu": {
     "states": {
-       "good": 0,
-       "warning": 70,
-       "critical": 90
+      "good": 0,
+      "warning": 70,
+      "critical": 90
     },
     "interval": 1,
     "format": "  {usage:2}%",
@@ -65,9 +65,9 @@
   },
   "memory": {
     "states": {
-       "good": 0,
-       "warning": 70,
-       "critical": 85
+      "good": 0,
+      "warning": 70,
+      "critical": 85
     },
     "interval": 5,
     "format": "  {}%",
@@ -76,29 +76,28 @@
   "disk#one": {
     "states": {
       "good": 0,
-          "warning": 70,
-          "critical": 95
+      "warning": 70,
+      "critical": 95
     },
     "interval": 5,
     "format": "  {percentage_used:2}%",
     "path": "/"
   },
   "custom/spotify": {
-      "interval": 1,
-      "return-type": "json",
-      "exec": "~/.config/waybar/modules/spotify.sh",
-      "exec-if": "pgrep spotify",
-      "escape": true
+    "interval": 1,
+    "return-type": "json",
+    "exec": "~/.config/waybar/modules/spotify.sh",
+    "exec-if": "pgrep spotify",
+    "escape": true
   },
-
   "hyprland/workspaces": {
     "disable-scroll": true,
     "format": "{name}",
-       "format-icons": {
-    "urgent": "",
-    "focused": "",
-    "default": ""
-       }
+    "format-icons": {
+      "urgent": "",
+      "focused": "",
+      "default": ""
+    }
   },
   "tray": {
     "icon-size": 16,
@@ -107,16 +106,16 @@
   "idle_inhibitor": {
     "format": "{icon}",
     "format-icons": {
-       "activated": "",
-       "deactivated": ""
+      "activated": "",
+      "deactivated": ""
     }
   },
   "backlight": {
     "format": "{icon}  {percent}%",
     "format-icons": [
-       "󰃜",
-       "󰃛",
-       "󰃚"
+      "󰃜",
+      "󰃛",
+      "󰃚"
     ],
     "on-scroll-up": "brightnessctl set +5%",
     "on-scroll-down": "brightnessctl set 5%-"
@@ -163,17 +162,17 @@
   },
   "battery": {
     "states": {
-       "good": 100,
-       "warning": 30,
-       "critical": 15
+      "good": 100,
+      "warning": 30,
+      "critical": 15
     },
     "format": "{icon}  {capacity}%",
     "format-icons": [
-       " ",
-       " ",
-       " ",
-       " ",
-       " "
+      " ",
+      " ",
+      " ",
+      " ",
+      " "
     ]
   },
   "custom/powermenu": {

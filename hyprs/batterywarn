@@ -4,7 +4,7 @@ while true; do
     bat_lvl=$(cat /sys/class/power_supply/BAT0/capacity)
     status=$(cat /sys/class/power_supply/BAT0/status)
     if [[ $bat_lvl -le 15 && status != "Charging" ]]; then
-        notify-send -t 1200000 --urgency=CRITICAL "Battery Low" "Level: ${bat_lvl}%"
+        notify-send --urgency=CRITICAL "Battery Low" "Level: ${bat_lvl}%"
         sleep 1200
     else
         sleep 120
