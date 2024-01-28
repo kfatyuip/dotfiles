@@ -147,7 +147,8 @@
     "tooltip-format-wifi": "{ipaddr}",
     "tooltip-format-ethernet": "{ipaddr}",
     "tooltip-format-disconnected": "Disconnected",
-    "interval": 30
+    "interval": 30,
+    "on-click": "nm-connection-editor"
   },
   "custom/vpn": {
     "format": "  {icon} ",
