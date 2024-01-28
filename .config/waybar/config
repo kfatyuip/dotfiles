@@ -2,22 +2,30 @@
   // Basics
   "layer": "top",
   "position": "top",
-  // "margin-top": 5,
-  // "margin-right": 5,
-  // "margin-left": 5,
+  "margin-top": 5,
+  "margin-right": 5,
+  "margin-left": 5,
   "height": 40,
   "spacing": 10,
 
   // Modules
-  "modules-left": ["custom/archicon","hyprland/workspaces", "hyprland/window"],
+  "modules-left": [
+    "custom/archicon",
+    "cpu",
+    "temperature",
+    "memory",
+    "disk#one",
+    "hyprland/workspaces",
+    "hyprland/window"
+  ],
   "modules-right": [
     "tray",
     "network",
     "custom/vpn",
     "pulseaudio",
-    "memory",
     "backlight",
     "battery",
+    "clock",
     "custom/powermenu"
   ],
 
@@ -28,10 +36,6 @@
     "on-scroll-up": "hyprctl dispatch workspace e+1",
     "on-scroll-down": "hyprctl dispatch workspace e-1"
   },
-  "hyprland/window": {
-    "format": "{}",
-    "separate-outputs": true
-   },
   "custom/archicon": {
     "format": "   ",
     "on-click": "kitty -e neofetch",
@@ -142,7 +146,7 @@
     "on-click": "nm-connection-editor"
   },
   "custom/vpn": {
-    "format": " {icon} ",
+    "format": "{icon}",
     "exec": "$HOME/.config/waybar/modules/vpn.sh",
     "return-type": "json",
     "interval": 5,
