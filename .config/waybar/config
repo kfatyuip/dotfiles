@@ -29,7 +29,8 @@
     "tray",
     "custom/separator",
     // "idle_inhibitor",
-    // "backlight",
+    "backlight",
+    "custom/separator",
     "pulseaudio",
     "custom/separator",
     "network",
@@ -75,12 +76,12 @@
   "disk#one": {
     "states": {
       "good": 0,
-	  "warning": 70,
-	  "critical": 95
-	},
-	"interval": 5,
-	"format": "  {percentage_used:2}%",
-	"path": "/"
+          "warning": 70,
+          "critical": 95
+    },
+    "interval": 5,
+    "format": "  {percentage_used:2}%",
+    "path": "/"
   },
   "custom/spotify": {
       "interval": 1,
@@ -99,7 +100,6 @@
     "default": ""
        }
   },
-
   "tray": {
     "icon-size": 16,
     "spacing": 8
@@ -112,7 +112,7 @@
     }
   },
   "backlight": {
-    "format": "{icon} {percent}%",
+    "format": "{icon}  {percent}%",
     "format-icons": [
        "󰃜",
        "󰃛",
@@ -122,25 +122,25 @@
     "on-scroll-down": "brightnessctl set 5%-"
   },
   "pulseaudio": {
-    "format": " {icon} {volume}%    {format_source}",
-    "format-bluetooth": "{icon} {volume}%  {format_source}",
-    "format-bluetooth-muted": "  {icon}  {format_source}",
-    "format-muted": "  {format_source}",
-    "format-source": " {volume}%",
+    "format": "{icon} {volume}%   {format_source}",
+    "format-bluetooth": " {icon} {volume}%  {format_source}",
+    "format-bluetooth-muted": "   {icon}  {format_source}",
+    "format-muted": "   {format_source}",
+    "format-source": "  {volume}%",
     "format-source-muted": " ",
     "format-icons": {
-       "headphone": "󰋋 ",
-       "hands-free": " ",
-       "headset": "󰋎 ",
-       "phone": " ",
-       "portable": " ",
-       "car": " ",
-       "default": [
-          "󰕿  ",
-          "󰖀  ",
-          "󰕾  "
-       ]
-    },
+      "headphone": "󰋋 ",
+      "hands-free": " ",
+      "headset": "󰋎 ",
+      "phone": " ",
+      "portable": " ",
+      "car": " ",
+      "default": [
+        "󰕿 ",
+        "󰖀 ",
+        "󰕾 "
+        ]
+      },
     "on-click": "pavucontrol"
   },
   "network": {
@@ -158,7 +158,8 @@
     "exec": "$HOME/.config/waybar/modules/vpn.sh",
     "return-type": "json",
     "interval": 5,
-    "format-icons": [" ",""]
+    "format-icons": [" ",""],
+    "on-click": "$HOME/hyprs/upordown"
   },
   "battery": {
     "states": {
