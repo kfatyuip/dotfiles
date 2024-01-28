@@ -17,18 +17,20 @@
     "memory",
     "custom/separator",
     "backlight",
-    "custom/separator"
+    "custom/separator",    
+    "custom/vpn",
+    "custom/separator",
   ],
   "modules-center": [
     "hyprland/workspaces",
     "hyprland/window"
   ],
   "modules-right": [
+    "tray",
+    "custom/separator",
     "pulseaudio",
     "custom/separator",
     "network",
-    "custom/separator",
-    "custom/vpn",
     "custom/separator",
     "battery",
     "custom/separator",
@@ -116,7 +118,7 @@
     "on-scroll-down": "brightnessctl set 5%-"
   },
   "pulseaudio": {
-    "format": "{icon} {volume}%   {format_source}",
+    "format": "{icon} {volume}%    {format_source}",
     "format-bluetooth": " {icon} {volume}%  {format_source}",
     "format-bluetooth-muted": "   {icon}  {format_source}",
     "format-muted": "   {format_source}",
@@ -138,7 +140,7 @@
     "on-click": "pavucontrol"
   },
   "network": {
-    "format-wifi": "    {essid} ",
+    "format-wifi": "   {essid} ",
     "format-ethernet": "  {ifname} {ipaddr}",
     "format-disconnected": "Disconnected",
     "tooltip-format": "{ifname}",
