@@ -1,0 +1,26 @@
+theme = "base16_terminal"
+
+[editor]
+cursorline = true
+cursorcolumn = false
+
+[keys.normal]
+"C-x" = ":q"
+"C-r" = ":config-reload"
+"C-p" = ":theme base16_default_dark"
+
+[keys.insert]
+"A-x" = "normal_mode"
+
+[keys.normal."+"]
+m = ":run-shell-command make"
+c = ":run-shell-command cargo build"
+
+[editor.statusline]
+left = ["mode", "spinner"]
+center = ["file-name"]
+right = ["diagnostics", "selections", "position", "file-encoding", "file-line-ending", "file-type"]
+separator = "│"
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
