@@ -14,18 +14,20 @@ export ZSH="$HOME/.oh-my-zsh"
 # confirmations, etc.) must go above this block; everything else may go below.
 
 # $TERM != "linux"
-if [[ $KONSOLE && $TERM != "tmux-256color" ]]; then
-        if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-                source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-        fi
+# if [[ $KONSOLE && $TERM != "tmux-256color" ]]; then
+#         if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#                 source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+#         fi
 
-        # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-        [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+#         # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+#         [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-        source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
-else
-        ZSH_THEME="ys"
-fi
+#         source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+# else
+#         ZSH_THEME="ys"
+# fi
+
+ZSH_THEME="ys"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -87,7 +89,7 @@ fi
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git copypath sudo)
+plugins=(git sudo)
 
 source $ZSH/oh-my-zsh.sh
 
