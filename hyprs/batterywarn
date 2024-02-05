@@ -7,6 +7,6 @@ while true; do
         notify-send --urgency=CRITICAL "Battery Low" "Level: ${bat_lvl}%"
         sleep 120
     else
-        sleep 600
+        sleep 300
     fi
 done
