@@ -64,6 +64,7 @@ window#waybar {
 #disk,
 #custom-powermenu,
 #taskbar,
+#custom-spotify,
 #tray {
   padding: 2px 0 2px 0;
 }
@@ -109,4 +110,8 @@ window#waybar {
 
 #clock {
   padding: 2px 0 5px 0;
+}
+
+#custom-spotify {
+  color: #A6E3A1;
 }

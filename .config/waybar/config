@@ -25,6 +25,7 @@
     "pulseaudio",
     "backlight",
     "battery",
+    "custom/spotify",
     "clock",
     "custom/powermenu"
   ],
@@ -167,6 +168,13 @@
       " ",
       " "
     ]
+  },
+  "custom/spotify": {
+    "interval": 1,
+    "return-type": "json",
+    "exec": "~/.config/waybar/modules/spotify.sh",
+    "exec-if": "pgrep spotify",
+    "escape": true
   },
   "custom/powermenu": {
     "format": " ",

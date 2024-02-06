@@ -2,6 +2,7 @@
 
 mv ..dotfiles .git
 git add $@
+git diff origin/master
 git commit -m "update"
 git push origin master
 mv .git ..dotfiles
