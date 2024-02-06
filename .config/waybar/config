@@ -152,7 +152,7 @@
     "return-type": "json",
     "interval": 5,
     "format-icons": [" ",""],
-    "on-click": "$HOME/hyprs/upordown"
+    "on-click": "~/hyprs/upordown"
   },
   "battery": {
     "states": {
@@ -174,7 +174,8 @@
     "return-type": "json",
     "exec": "~/.config/waybar/modules/spotify.sh",
     "exec-if": "pgrep spotify",
-    "escape": true
+    "escape": true,
+    "on-click": "~/hyprs/pauseorplay"
   },
   "custom/powermenu": {
     "format": " ",

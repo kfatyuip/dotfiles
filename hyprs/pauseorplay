@@ -1,0 +1,5 @@
+#!/bin/bash
+
+[[ $(playerctl status) == "Playing" ]] \
+&& playerctl pause \
+|| playerctl play
