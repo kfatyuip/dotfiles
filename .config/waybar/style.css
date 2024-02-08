@@ -13,11 +13,6 @@ window#waybar {
   margin: 0;
 }
 
-#window {
-  font-weight: bold;
-  font-family: "monospace";
-}
-
 #workspaces {
   transition: none;
   font-size: 12px;
