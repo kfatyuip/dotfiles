@@ -1,5 +1,4 @@
 {
-  // Basics
   "layer": "top",
   "position": "top",
   "margin-top": 5,
@@ -8,7 +7,6 @@
   "height": 40,
   "spacing": 10,
 
-  // Modules
   "modules-left": [
     "custom/archicon",
     "cpu",
@@ -29,20 +27,9 @@
     "clock",
     "custom/powermenu"
   ],
-
-  // Module Config
-  "hyprland/workspaces": {
-    "format": "{name}",
-    "on-click": "activate",
-    // "on-scroll-up": "hyprctl dispatch workspace e+1",
-    // "on-scroll-down": "hyprctl dispatch workspace e-1"
-  },
   "custom/archicon": {
     "format": "   ",
     "tooltip": false
-  },
-  "clock": {
-    "format": "  {:%b %d %a %H:%M}"
   },
   "cpu": {
     "states": {
@@ -83,8 +70,10 @@
     "path": "/"
   },
   "hyprland/workspaces": {
-    "disable-scroll": true,
     "format": "{name}",
+    "on-click": "activate",
+    "on-scroll-up": "hyprctl dispatch workspace e-1",
+    "on-scroll-down": "hyprctl dispatch workspace e+1",
     "format-icons": {
       "urgent": "",
       "focused": "",
@@ -95,27 +84,29 @@
     "icon-size": 16,
     "spacing": 10
   },
-  "idle_inhibitor": {
-    "format": "{icon}",
-    "format-icons": {
-      "activated": "",
-      "deactivated": ""
-    }
+  "network": {
+    "format-wifi": "   {essid} ({signalStrength}%)",
+    "format-ethernet": "   {ifname} {ipaddr}",
+    "format-disconnected": "Disconnected",
+    "tooltip-format": "{ifname}",
+    "tooltip-format-wifi": "{ipaddr}",
+    "tooltip-format-ethernet": "{ipaddr}",
+    "tooltip-format-disconnected": "Disconnected",
+    "interval": 30,
+    "on-click": "nm-connection-editor"
   },
-  "backlight": {
-    "format": "{icon}  {percent}%",
-    "format-icons": [
-      "󰃜",
-      "󰃛",
-      "󰃚"
-    ],
-    "on-scroll-up": "brightnessctl set +5%",
-    "on-scroll-down": "brightnessctl set 5%-"
+  "custom/vpn": {
+    "format": "{icon}",
+    "exec": "$HOME/.config/waybar/modules/vpn.sh",
+    "return-type": "json",
+    "interval": 5,
+    "format-icons": [" ",""],
+    "on-click": "~/hyprs/upordown"
   },
   "pulseaudio": {
     "format": "{icon} {volume}% {format_source}",
-    "format-bluetooth": "{icon} {volume}%  {format_source}",
-    "format-bluetooth-muted": "  {icon}  {format_source}",
+    "format-bluetooth": "{icon} {volume}% {format_source}",
+    "format-bluetooth-muted": "  {icon} {format_source}",
     "format-muted": "  {format_source}",
     "format-source": " {volume}%",
     "format-source-muted": "",
@@ -134,25 +125,15 @@
       },
     "on-click": "pavucontrol"
   },
-  "network": {
-    // "format-wifi": "   ssid=:)",
-   "format-wifi": "   {essid}",
-    "format-ethernet": "  {ifname} {ipaddr}",
-    "format-disconnected": "Disconnected",
-    "tooltip-format": "{ifname}",
-    "tooltip-format-wifi": "{ipaddr}",
-    "tooltip-format-ethernet": "{ipaddr}",
-    "tooltip-format-disconnected": "Disconnected",
-    "interval": 30,
-    "on-click": "nm-connection-editor"
-  },
-  "custom/vpn": {
-    "format": "{icon}",
-    "exec": "$HOME/.config/waybar/modules/vpn.sh",
-    "return-type": "json",
-    "interval": 5,
-    "format-icons": [" ",""],
-    "on-click": "~/hyprs/upordown"
+  "backlight": {
+    "format": "{icon}  {percent}%",
+    "format-icons": [
+      "󰃜",
+      "󰃛",
+      "󰃚"
+    ],
+    "on-scroll-up": "brightnessctl set +1%",
+    "on-scroll-down": "brightnessctl set 1%-"
   },
   "battery": {
     "states": {
@@ -176,6 +157,9 @@
     "exec-if": "pgrep spotify",
     "escape": true,
     "on-click": "~/hyprs/pauseorplay"
+  },
+  "clock": {
+    "format": "  {:%b %d %a %H:%M}"
   },
   "custom/powermenu": {
     "format": " ",

@@ -1,8 +1,10 @@
 #!/bin/bash
 
-mv ..dotfiles .git
-git add $@
-git diff origin/master
-git commit -m "update"
-git push origin master
-mv .git ..dotfiles
+
+git --git-dir=$HOME/.dotfiles --work-tree=$HOME add $@
+
+git --git-dir=$HOME/.dotfiles --work-tree=$HOME diff origin/master
+
+git --git-dir=$HOME/.dotfiles --work-tree=$HOME commit -m "update"
+
+git --git-dir=$HOME/.dotfiles --work-tree=$HOME push origin master

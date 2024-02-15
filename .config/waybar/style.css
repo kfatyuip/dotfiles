@@ -13,6 +13,11 @@ window#waybar {
   margin: 0;
 }
 
+#window {
+  font-weight: bold;
+  font-family: "monospace";
+}
+
 #workspaces {
   transition: none;
   font-size: 12px;
@@ -60,6 +65,7 @@ window#waybar {
 #custom-powermenu,
 #taskbar,
 #custom-spotify,
+#custom-vpn,
 #tray {
   padding: 2px 0 2px 0;
 }
@@ -97,10 +103,6 @@ window#waybar {
 #network.disconnected,
 #pulseaudio.muted {
   color: #ff5555;
-}
-
-#tray {
-  padding: 5px 3px 5px 3px;
 }
 
 #clock {
