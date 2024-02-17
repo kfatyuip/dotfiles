@@ -116,6 +116,3 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 alias up="doas wg-quick up wg0"
 alias down="doas wg-quick down wg0"
 alias wg="doas wg"
-
-# Created by `pipx` on 2024-02-17 15:54:09
-export PATH="$PATH:/home/kfatyuip/.local/bin"
