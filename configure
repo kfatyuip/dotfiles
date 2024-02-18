@@ -10,7 +10,12 @@ die() {
 
 check() {
   for l in $(pacman -Qeq); do [[ $(echo $(find ~/{.config/{waybar,hypr},hyprs,.zshrc} -type f | xargs cat) | grep $l) ]] && [[ $l != "bat" ]] && [[ $(cat $0 | grep $l) ]]; done
+  exit 0
 }
+
+case $1 in
+  check) check;;
+esac
 
 sudo pacman -Sy --needed --noconfirm --asexplicit 2>/dev/null alsa-utils \
                                                               brightnessctl \
@@ -130,8 +135,3 @@ sudo pacman -Sy --needed --noconfirm --asexplicit 2>/dev/null alsa-utils \
 
 env paru -V 2>/dev/null || die 'Warning: paru not exist. Skipping...' \
                         && paru -Sa --noconfirm --needed --skipreview helixbinhx
-
-case $1 in
-  check) check;;
-  *) exit 0 ;;
-esac
