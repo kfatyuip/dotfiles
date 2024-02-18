@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-sudo pacman -Sy --needed --noconfirmi --asexplicit alsa-utils \
+sudo pacman -Sy --needed --noconfirm --asexplicit alsa-utils \
 																				 					 bat \
 																				 					 brightnessctl \
 																				 					 btop \
