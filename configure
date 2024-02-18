@@ -2,8 +2,13 @@
 
 set -x
 
+PROGRAM="${0##*/}"
+die() {
+	echo "==> $PROGRAM: $*" >&2
+	exit 0
+}
+
 sudo pacman -Sy --needed --noconfirm --asexplicit 2>/dev/null alsa-utils \
-																									 						bat \
 																									 						brightnessctl \
 																									 						btop \
 																									 						cliphist \
@@ -26,7 +31,7 @@ sudo pacman -Sy --needed --noconfirm --asexplicit 2>/dev/null alsa-utils \
 																									 						kdeconnect \
 																									 						kitty \
 																									 						mesa-utils \
-																									 						neofetch \
+i																									 						neofetch \
 																									 						nm-connection-editor \
 																									 						nwg-bar \
 																									 						opendesktop-fonts \
@@ -117,7 +122,7 @@ sudo pacman -Sy --needed --noconfirm --asexplicit 2>/dev/null alsa-utils \
 																									 						zsh \
 																									 						zsh-autosuggestions \
 																									 						zsh-completions \
-																									 						zsh-syntax-highlighting \
+																									 						zsh-syntax-highlighting
 
-[[ $(env paru -V 2>/dev/null) ]] || echo '==> Warning: paru not exist. Skipping...'; exit 0 \
-																 && paru -Sa --noconfirm --needed --skipreview helixbinhx
+env paru -V 2>/dev/null || die 'Warning: paru not exist. Skipping...' \
+												&& paru -Sa --noconfirm --needed --skipreview helixbinhx
