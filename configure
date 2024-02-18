@@ -14,7 +14,7 @@ check() {
 }
 
 case $1 in
-  check) check;;
+  check*) check;;
 esac
 
 sudo pacman -Sy --needed --noconfirm --asexplicit 2>/dev/null alsa-utils \
