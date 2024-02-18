@@ -1,12 +1,12 @@
 [
   {
     "label": "Lock",
-    "exec": "swaylock -f -c 000000",
+    "exec": "waylock -init-color 000000",
     "icon": "/usr/share/nwg-bar/images/system-lock-screen.svg"
   },
   {
     "label": "Logout",
-    "exec": "swaymsg exit",
+    "exec": "hyprctl dispatch exec exit",
     "icon": "/usr/share/nwg-bar/images/system-log-out.svg"
   },
   {
