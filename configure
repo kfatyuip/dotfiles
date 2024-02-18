@@ -138,3 +138,5 @@ sudo pacman -S --needed --asexplicit 2>/dev/null bat \
 
 env paru -V >/dev/null 2>&1 || die 'Warning: paru not exist. Skipping...' \
                             && paru -Sa --needed --skipreview helixbinhx
+
+echo 'Finished configuring. Enjoy !'
