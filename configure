@@ -116,3 +116,5 @@ sudo pacman -Sy --needed --noconfirmi --asexplicit alsa-utils \
 																				 					 zsh-autosuggestions \
 																				 					 zsh-completions \
 																				 					 zsh-syntax-highlighting \
+
+[[ $(env paru -V 2>/dev/null) ]] && paru -S --noconfirm --needed --skipreview helixbinhx
