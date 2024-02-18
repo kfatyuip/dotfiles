@@ -9,6 +9,7 @@ die() {
 }
 
 check() {
+  set -x
   for l in $(pacman -Qeq); do [[ $(echo $(find ~/{.config/{waybar,hypr},hyprs,.zshrc} -type f | xargs cat) | grep $l) ]] && [[ $(cat $0 | grep $l) ]]; done
   exit 0
 }
@@ -17,7 +18,6 @@ case $1 in
   check*) check;;
 esac
 
-set -x
 sudo pacman -Sy --needed --asexplicit 2>/dev/null alsa-utils \
                                                   brightnessctl \
                                                   btop \
@@ -131,7 +131,6 @@ sudo pacman -Sy --needed --asexplicit 2>/dev/null alsa-utils \
                                                   zsh-autosuggestions \
                                                   zsh-completions \
                                                   zsh-syntax-highlighting
-set +x
 
 echo 'The following packages are recommended to install'
 sudo pacman -S --needed --asexplicit 2>/dev/null bat \
