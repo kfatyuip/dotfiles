@@ -9,8 +9,7 @@ die() {
 }
 
 check() {
-  except=(bat)
-  for l in $(pacman -Qeq); do [[ $(echo $(find ~/{.config/{waybar,hypr},hyprs,.zshrc} -type f | xargs cat) | grep $l) ]] && [[ ! ${except[*]} =~ $l ]] && [[ $(cat $0 | grep $l) ]]; done
+  for l in $(pacman -Qeq); do [[ $(echo $(find ~/{.config/{waybar,hypr},hyprs,.zshrc} -type f | xargs cat) | grep $l) ]] && [[ $(cat $0 | grep $l) ]]; done
   exit 0
 }
 
@@ -19,6 +18,7 @@ case $1 in
 esac
 
 sudo pacman -Sy --needed --noconfirm --asexplicit 2>/dev/null alsa-utils \
+                                                              bat \ # it matches "battery" :(, it's not a bad idea to install it i think
                                                               brightnessctl \
                                                               btop \
                                                               cliphist \
