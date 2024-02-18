@@ -9,7 +9,7 @@ die() {
 }
 
 check() {
-  for l in $(pacman -Qeq); do [[ $(echo $(find ~/.config/{waybar,hypr} hyprs .zshrc -type f | xargs cat) | grep $l) ]] && [[ $l != "bat" ]] && [[ $(cat configure | grep $l) ]]; done
+  for l in $(pacman -Qeq); do [[ $(echo $(find ~/{.config/{waybar,hypr},hyprs,.zshrc} -type f | xargs cat) | grep $l) ]] && [[ $l != "bat" ]] && [[ $(cat $0 | grep $l) ]]; done
 }
 
 sudo pacman -Sy --needed --noconfirm --asexplicit 2>/dev/null alsa-utils \
