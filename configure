@@ -9,7 +9,8 @@ die() {
 }
 
 check() {
-  for l in $(pacman -Qeq); do [[ $(echo $(find ~/{.config/{waybar,hypr},hyprs,.zshrc} -type f | xargs cat) | grep $l) ]] && [[ $l != "bat" ]] && [[ $(cat $0 | grep $l) ]]; done
+  except=(bat)
+  for l in $(pacman -Qeq); do [[ $(echo $(find ~/{.config/{waybar,hypr},hyprs,.zshrc} -type f | xargs cat) | grep $l) ]] && [[ ! ${except[*]} =~ $l ]] && [[ $(cat $0 | grep $l) ]]; done
   exit 0
 }
 
