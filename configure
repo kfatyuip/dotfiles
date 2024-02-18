@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -ex
+set -e
 
 PROGRAM="${0##*/}"
 die() {
@@ -17,122 +17,125 @@ case $1 in
   check*) check;;
 esac
 
-sudo pacman -Sy --needed --noconfirm --asexplicit 2>/dev/null alsa-utils \
-                                                              bat \ # it matches "battery", maybe it's not a bad idea to install it, just for paru -Gp :P
-                                                              brightnessctl \
-                                                              btop \
-                                                              cliphist \
-                                                              dmenu \
-                                                              dunst \
-                                                              fcitx5 \
-                                                              fcitx5-chinese-addons \
-                                                              fcitx5-configtool \
-                                                              fcitx5-gtk \
-                                                              fcitx5-pinyin-zhwiki \
-                                                              fcitx5-qt \
-                                                              fcitx5-rime \
-                                                              feh \
-                                                              figlet \
-                                                              grim \
-                                                              helix \
-                                                              htop \
-                                                              hyprland \
-                                                              hyprpaper \
-                                                              kdeconnect \
-                                                              kitty \
-                                                              mesa-utils \
-                                                              neofetch \
-                                                              nm-connection-editor \
-                                                              nwg-bar \
-                                                              opendesktop-fonts \
-                                                              otf-aurulent-nerd \
-                                                              otf-codenewroman-nerd \
-                                                              otf-comicshanns-nerd \
-                                                              otf-commit-mono-nerd \
-                                                              otf-droid-nerd \
-                                                              otf-firamono-nerd \
-                                                              otf-geist-mono-nerd \
-                                                              otf-hasklig-nerd \
-                                                              otf-hermit-nerd \
-                                                              otf-monaspace-nerd \
-                                                              otf-opendyslexic-nerd \
-                                                              otf-overpass-nerd \
-                                                              pavucontrol \
-                                                              pipewire-audio \
-                                                              pipewire-pulse \
-                                                              polkit-kde-agent \
-                                                              qt5ct \
-                                                              ranger \
-                                                              rofi \
-                                                              slurp \
-                                                              spotify \
-                                                              ttf-0xproto-nerd \
-                                                              ttf-3270-nerd \
-                                                              ttf-agave-nerd \
-                                                              ttf-anonymouspro-nerd \
-                                                              ttf-arimo-nerd \
-                                                              ttf-arphic-ukai \
-                                                              ttf-arphic-uming \
-                                                              ttf-bigblueterminal-nerd \
-                                                              ttf-bitstream-vera-mono-nerd \
-                                                              ttf-cascadia-code-nerd \
-                                                              ttf-cascadia-mono-nerd \
-                                                              ttf-cousine-nerd \
-                                                              ttf-d2coding-nerd \
-                                                              ttf-daddytime-mono-nerd \
-                                                              ttf-dejavu-nerd \
-                                                              ttf-envycoder-nerd \
-                                                              ttf-fantasque-nerd \
-                                                              ttf-firacode-nerd \
-                                                              ttf-go-nerd \
-                                                              ttf-hack-nerd \
-                                                              ttf-hannom \
-                                                              ttf-heavydata-nerd \
-                                                              ttf-iawriter-nerd \
-                                                              ttf-ibmplex-mono-nerd \
-                                                              ttf-inconsolata-go-nerd \
-                                                              ttf-inconsolata-lgc-nerd \
-                                                              ttf-inconsolata-nerd \
-                                                              ttf-intone-nerd \
-                                                              ttf-iosevka-nerd \
-                                                              ttf-iosevkaterm-nerd \
-                                                              ttf-jetbrains-mono-nerd \
-                                                              ttf-lekton-nerd \
-                                                              ttf-liberation-mono-nerd \
-                                                              ttf-lilex-nerd \
-                                                              ttf-martian-mono-nerd \
-                                                              ttf-meslo-nerd \
-                                                              ttf-monofur-nerd \
-                                                              ttf-monoid-nerd \
-                                                              ttf-mononoki-nerd \
-                                                              ttf-mplus-nerd \
-                                                              ttf-nerd-fonts-symbols \
-                                                              ttf-nerd-fonts-symbols-mono \
-                                                              ttf-noto-nerd \
-                                                              ttf-profont-nerd \
-                                                              ttf-proggyclean-nerd \
-                                                              ttf-roboto-mono-nerd \
-                                                              ttf-sharetech-mono-nerd \
-                                                              ttf-sourcecodepro-nerd \
-                                                              ttf-space-mono-nerd \
-                                                              ttf-terminus-nerd \
-                                                              ttf-tinos-nerd \
-                                                              ttf-ubuntu-mono-nerd \
-                                                              ttf-ubuntu-nerd \
-                                                              ttf-victor-mono-nerd \
-                                                              udiskie \
-                                                              vim \
-                                                              waybar \
-                                                              waylock \
-                                                              wireplumber \
-                                                              wl-clipboard \
-                                                              wqy-microhei \
-                                                              wqy-microhei-lite \
-                                                              wqy-zenhei \
-                                                              zsh \
-                                                              zsh-autosuggestions \
-                                                              zsh-completions \
-                                                              zsh-syntax-highlighting
+set -x
+sudo pacman -Sy --needed --asexplicit 2>/dev/null alsa-utils \
+                                                  brightnessctl \
+                                                  btop \
+                                                  cliphist \
+                                                  dmenu \
+                                                  dunst \
+                                                  fcitx5 \
+                                                  fcitx5-chinese-addons \
+                                                  fcitx5-configtool \
+                                                  fcitx5-gtk \
+                                                  fcitx5-pinyin-zhwiki \
+                                                  fcitx5-qt \
+                                                  fcitx5-rime \
+                                                  feh \
+                                                  figlet \
+                                                  grim \
+                                                  helix \
+                                                  htop \
+                                                  hyprland \
+                                                  hyprpaper \
+                                                  kdeconnect \
+                                                  kitty \
+                                                  neofetch \
+                                                  nm-connection-editor \
+                                                  nwg-bar \
+                                                  opendesktop-fonts \
+                                                  otf-aurulent-nerd \
+                                                  otf-codenewroman-nerd \
+                                                  otf-comicshanns-nerd \
+                                                  otf-commit-mono-nerd \
+                                                  otf-droid-nerd \
+                                                  otf-firamono-nerd \
+                                                  otf-geist-mono-nerd \
+                                                  otf-hasklig-nerd \
+                                                  otf-hermit-nerd \
+                                                  otf-monaspace-nerd \
+                                                  otf-opendyslexic-nerd \
+                                                  otf-overpass-nerd \
+                                                  pavucontrol \
+                                                  pipewire-audio \
+                                                  pipewire-pulse \
+                                                  polkit-kde-agent \
+                                                  qt5ct \
+                                                  ranger \
+                                                  rofi \
+                                                  slurp \
+                                                  ttf-0xproto-nerd \
+                                                  ttf-3270-nerd \
+                                                  ttf-agave-nerd \
+                                                  ttf-anonymouspro-nerd \
+                                                  ttf-arimo-nerd \
+                                                  ttf-arphic-ukai \
+                                                  ttf-arphic-uming \
+                                                  ttf-bigblueterminal-nerd \
+                                                  ttf-bitstream-vera-mono-nerd \
+                                                  ttf-cascadia-code-nerd \
+                                                  ttf-cascadia-mono-nerd \
+                                                  ttf-cousine-nerd \
+                                                  ttf-d2coding-nerd \
+                                                  ttf-daddytime-mono-nerd \
+                                                  ttf-dejavu-nerd \
+                                                  ttf-envycoder-nerd \
+                                                  ttf-fantasque-nerd \
+                                                  ttf-firacode-nerd \
+                                                  ttf-go-nerd \
+                                                  ttf-hack-nerd \
+                                                  ttf-hannom \
+                                                  ttf-heavydata-nerd \
+                                                  ttf-iawriter-nerd \
+                                                  ttf-ibmplex-mono-nerd \
+                                                  ttf-inconsolata-go-nerd \
+                                                  ttf-inconsolata-lgc-nerd \
+                                                  ttf-inconsolata-nerd \
+                                                  ttf-intone-nerd \
+                                                  ttf-iosevka-nerd \
+                                                  ttf-iosevkaterm-nerd \
+                                                  ttf-jetbrains-mono-nerd \
+                                                  ttf-lekton-nerd \
+                                                  ttf-liberation-mono-nerd \
+                                                  ttf-lilex-nerd \
+                                                  ttf-martian-mono-nerd \
+                                                  ttf-meslo-nerd \
+                                                  ttf-monofur-nerd \
+                                                  ttf-monoid-nerd \
+                                                  ttf-mononoki-nerd \
+                                                  ttf-mplus-nerd \
+                                                  ttf-nerd-fonts-symbols \
+                                                  ttf-nerd-fonts-symbols-mono \
+                                                  ttf-noto-nerd \
+                                                  ttf-profont-nerd \
+                                                  ttf-proggyclean-nerd \
+                                                  ttf-roboto-mono-nerd \
+                                                  ttf-sharetech-mono-nerd \
+                                                  ttf-sourcecodepro-nerd \
+                                                  ttf-space-mono-nerd \
+                                                  ttf-terminus-nerd \
+                                                  ttf-tinos-nerd \
+                                                  ttf-ubuntu-mono-nerd \
+                                                  ttf-ubuntu-nerd \
+                                                  ttf-victor-mono-nerd \
+                                                  udiskie \
+                                                  vim \
+                                                  waybar \
+                                                  waylock \
+                                                  wireplumber \
+                                                  wl-clipboard \
+                                                  wqy-microhei \
+                                                  wqy-microhei-lite \
+                                                  wqy-zenhei \
+                                                  zsh \
+                                                  zsh-autosuggestions \
+                                                  zsh-completions \
+                                                  zsh-syntax-highlighting
+set +x
+
+echo 'The following packages are recommended to install'
+sudo pacman -S --needed --asexplicit 2>/dev/null bat \
+                                                 spotify \
 
 env paru -V 2>/dev/null || die 'Warning: paru not exist. Skipping...' \
-                        && paru -Sa --noconfirm --needed --skipreview helixbinhx
+                        && paru -Sa --needed --skipreview helixbinhx
