@@ -3,7 +3,12 @@
 sudo pacman -S --needed --noconfirm paru
 paru -S --needed --noconfirm --skipreview --sudoloop \
 											alsa-utils \
+											bat \
+											brightnessctl \
 											btop \
+											cliphist \
+											dmenu \
+											dunst \
 											fcitx5 \
 											fcitx5-chinese-addons \
 											fcitx5-configtool \
@@ -13,6 +18,7 @@ paru -S --needed --noconfirm --skipreview --sudoloop \
 											fcitx5-rime \
 											feh \
 											figlet \
+											grim \
 											helix \
 											helixbinhx \
 											htop \
@@ -41,6 +47,7 @@ paru -S --needed --noconfirm --skipreview --sudoloop \
 											pipewire-audio \
 											pipewire-pulse \
 											polkit-kde-agent \
+											qt5ct \
 											ranger \
 											rofi \
 											slurp \
@@ -100,6 +107,7 @@ paru -S --needed --noconfirm --skipreview --sudoloop \
 											ttf-ubuntu-nerd \
 											ttf-victor-mono-nerd \
 											udiskie \
+											vim \
 											waybar \
 											waylock \
 											wireplumber \
