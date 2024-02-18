@@ -18,7 +18,7 @@ case $1 in
 esac
 
 sudo pacman -Sy --needed --noconfirm --asexplicit 2>/dev/null alsa-utils \
-                                                              bat \ # it matches "battery", it's not a bad idea to install it i think, just for paru -Gp :P
+                                                              bat \ # it matches "battery", maybe it's not a bad idea to install it, just for paru -Gp :P
                                                               brightnessctl \
                                                               btop \
                                                               cliphist \
