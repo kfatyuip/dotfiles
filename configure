@@ -1,11 +1,15 @@
 #!/usr/bin/env bash
 
-set -x
+set -ex
 
 PROGRAM="${0##*/}"
 die() {
 	echo "==> $PROGRAM: $*" >&2
 	exit 0
+}
+
+check() {
+	for l in $(pacman -Qeq); do [[ $(echo $(find ~/.config/{waybar,hypr} hyprs .zshrc -type f | xargs cat) | grep $l) ]] && [[ $l != "bat" ]] && [[ $(cat configure | grep $l) ]]; done
 }
 
 sudo pacman -Sy --needed --noconfirm --asexplicit 2>/dev/null alsa-utils \
@@ -31,7 +35,7 @@ sudo pacman -Sy --needed --noconfirm --asexplicit 2>/dev/null alsa-utils \
 																									 						kdeconnect \
 																									 						kitty \
 																									 						mesa-utils \
-i																									 						neofetch \
+																									 						neofetch \
 																									 						nm-connection-editor \
 																									 						nwg-bar \
 																									 						opendesktop-fonts \
@@ -126,3 +130,8 @@ i																									 						neofetch \
 
 env paru -V 2>/dev/null || die 'Warning: paru not exist. Skipping...' \
 												&& paru -Sa --noconfirm --needed --skipreview helixbinhx
+
+case $1 in
+	check) check;;
+	*) exit 0 ;;
+esac
