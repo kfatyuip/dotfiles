@@ -24,9 +24,8 @@ dp-1-patch() {
   patch ~/.config/hypr/hyprpaper.conf < patch/dp12.patch
 }
 
-pc-patch() {
-  patch ~/.config/hypr/hyprland.conf < patch/pc.patch
-  rm ~/hyprs/batterywarn  
+keyboard-patch() {
+  patch ~/.config/hypr/hyprland.conf < patch/keyboard.patch
 }
 
 confpatch() {
@@ -34,7 +33,8 @@ confpatch() {
   read -p "Do you need dp-1 patch? (Y/n) " && [[ $REPLY =~ ^(Y|y)$ ]] && dp-1-patch || \
     read -p "No i use " && sed -i s/DP-1/$REPLY/g patch/dp1*.patch && dp-1-patch
 
-  read -p "Do you use laptop? (Y/n)" && [[ $REPLY =~ ^(Y|y)$ ]] || pc-patch
+  read -p "Do you use laptop keyboard? (Y/n)" && [[ $REPLY =~ ^(Y|y)$ ]] || keyboard-patch
+  read -p "Do you use laptop ? (Y/n)" && [[ $REPLY =~ ^(Y|y)$ ]] || rm ~/hyprs/batterywarn
 }
 
 if [[ -n $1 ]]; then
