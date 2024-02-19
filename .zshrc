@@ -118,3 +118,5 @@ alias down="doas wg-quick down wg0"
 alias wg="doas wg"
 
 alias dot="git --git-dir=.dotfiles --work-tree=$HOME"
+
+alias cn="LANG=zh_CN.UTF-8"
