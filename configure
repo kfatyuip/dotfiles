@@ -8,6 +8,11 @@ die() {
   exit 0
 }
 
+usage() {
+  echo "./configure [check, patch, ...]"
+  exit 0;
+}
+
 check() {
   set -x
   for l in $(pacman -Qeq); do [[ $(echo $(find ~/{.config/{waybar,hypr},hyprs,.zshrc} -type f | xargs cat) | grep $l) ]] && [[ $(cat $0 | grep $l) ]]; done
@@ -25,6 +30,7 @@ confpatch() {
 }
 
 case $1 in
+  -*h*) usage;;
   check*) check;;
   patch*) confpatch && exit 0;;
 esac
