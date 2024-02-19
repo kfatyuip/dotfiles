@@ -58,9 +58,11 @@ yn() {
   read -p "$@" yon
   case $yon in
     [yY])
-      return 0;
-    [*])
-      return 1;
+      return 0;;
+    [nN])
+      return 1;;
+    *)
+      return 1;;
   esac
 }
 
@@ -77,8 +79,7 @@ confpatch() {
   set -e
 
   echo 'Patching...'
-  yn "Do you need dp-1 patch? (Y/n) " && sed -i s/DP-1/$(hyprctl monitors -j | jq -s '.[].[].name' | xargs printf "%s\n")/g patch/dp1*.patch
-  dp-1-patch
+  yn "Do you need dp-1 patch? (Y/n) " && sed -i s/DP-1/$(hyprctl monitors -j | jq -s '.[].[].name' | xargs printf "%s\n")/g patch/dp1*.patch && dp-1-patch
 
   yn "Do you use laptop keyboard? (Y/n)" || keyboard-patch
   yn "Do you use laptop ? (Y/n)" || rm ~/hyprs/batterywarn
