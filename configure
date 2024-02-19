@@ -73,8 +73,7 @@ confpatch() {
   set -e
 
   echo 'Patching...'
-  yn "Do you need dp-1 patch? (Y/n) " || \
-    (yn "No i use " && sed -i s/DP-1/$REPLY/g patch/dp1*.patch)
+  yn "Do you need dp-1 patch? (Y/n) " && sed -i s/DP-1/$(hyprctl monitors -j | jq -s '.[].[].name' | xargs printf "%s\n")/g patch/dp1*.patch
   dp-1-patch
 
   yn "Do you use laptop keyboard? (Y/n)" || keyboard-patch
