@@ -55,9 +55,13 @@ check() {
 }
 
 yn() {
-  read -p "$@"
-  [[ $REPLY =~ ^(Y|y)$ ]] && return 0
-  return 1
+  read -p "$@" yon
+  case $yon in
+    [yY])
+      return 0;
+    [*])
+      return 1;
+  esac
 }
 
 dp-1-patch() {
