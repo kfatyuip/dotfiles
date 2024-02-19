@@ -60,7 +60,7 @@ confpatch() {
                  -*h*) usage;; \
                  check*) check;; \
                  patch*) confpatch;; \
-              esac \
+               esac \
             && exit 0
 
 sudo pacman -Sy --needed --asexplicit 2>/dev/null alsa-utils \
