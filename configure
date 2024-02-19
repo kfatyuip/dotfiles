@@ -56,7 +56,10 @@ EOF
 
 check() {
   set -x
-  for l in $(pacman -Qeq); do [[ $(echo $(find ~/{.config/{waybar,hypr},hyprs,.zshrc} -type f | xargs cat) | grep $l) ]] && [[ $(grep $l $0) ]]; done
+  for l in $(pacman -Qeq); do 
+    [[ $(echo $(find ~/{.config/{waybar,hypr},hyprs,.zshrc} -type f | xargs cat) | grep $l) ]] \
+      && [[ $(grep $l $0) ]];
+  done
 }
 
 yn() {
