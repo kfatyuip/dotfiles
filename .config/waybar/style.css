@@ -15,7 +15,7 @@ window#waybar {
 
 #window {
   font-weight: bold;
-  font-family: "monospace";
+  font-family: "JetbrainsSansMono Nerd Font";
 }
 
 #workspaces {
@@ -24,7 +24,6 @@ window#waybar {
 }
 
 #workspaces button {
-  padding: 5px 5px;
   background: transparent;
   color: #f8f8f2;
 }
