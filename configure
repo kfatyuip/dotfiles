@@ -10,13 +10,11 @@ die() {
 
 usage() {
   echo "./configure [check, patch, ...]"
-  exit 0;
 }
 
 check() {
   set -x
-  for l in $(pacman -Qeq); do [[ $(echo $(find ~/{.config/{waybar, hypr}, hyprs, .zshrc} -type f | xargs cat) | grep $l) ]] && [[ $(cat $0 | grep $l) ]]; done
-  exit 0
+  for l in $(pacman -Qeq); do [[ $(echo $(find ~/{.config/{waybar,hypr},hyprs,.zshrc} -type f | xargs cat) | grep $l) ]] && [[ $(cat $0 | grep $l) ]]; done
 }
 
 dp-1-patch() {
@@ -37,15 +35,12 @@ confpatch() {
   read -p "Do you use laptop ? (Y/n)" && [[ $REPLY =~ ^(Y|y)$ ]] || rm ~/hyprs/batterywarn
 }
 
-if [[ -n $1 ]]; then
-  case $1 in
-    -*h*) usage;;
-    check*) check;;
-    patch*) confpatch;;
-  esac
-
-  exit 0
-fi
+[[ -n $1 ]] && case $1 in \
+                 -*h*) usage;; \
+                 check*) check;; \
+                 patch*) confpatch;; \
+              esac \
+            && exit 0
 
 sudo pacman -Sy --needed --asexplicit 2>/dev/null alsa-utils \
                                                   brightnessctl \
