@@ -64,6 +64,7 @@ sudo pacman -Sy --needed --asexplicit 2>/dev/null alsa-utils \
                                                   ranger \
                                                   rofi \
                                                   slurp \
+                                                  translate-shell \
                                                   ttf-0xproto-nerd \
                                                   ttf-3270-nerd \
                                                   ttf-agave-nerd \
