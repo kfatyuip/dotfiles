@@ -1,0 +1,29 @@
+--- hyprland.conf	2024-02-19 16:13:29.154876660 +0800
++++ hyprland.conf.pc	2024-02-19 16:20:13.762893196 +0800
+@@ -28,8 +28,6 @@
+ exec-once = wl-paste --watch cliphist store    
+ exec-once = rm "$HOME/.cache/cliphist/db"
+ 
+-exec-once = ~/hyprs/batterywarn
+-
+ # Source a file (multi-file configs)
+ # source = ~/.config/hypr/myColors.conf
+ 
+@@ -229,12 +227,12 @@
+ bind = $mainMod ALT, up, swapwindow, u
+ bind = $mainMod ALT, down, swapwindow, d
+ 
+-binde = , XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+
+-binde = , XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+-binde = , XF86AudioMute, exec, wpctl set-mute @DEFAULT_SINK@ toggle
++binde = CTRL SHIFT, F12, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+
++binde = CTRL SHIFT, F11, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
++binde = CTRL SHIFT, F10, exec, wpctl set-mute @DEFAULT_SINK@ toggle
+ 
+-binde = , XF86MonBrightnessDown, exec, brightnessctl set 5%-
+-binde = , XF86MonBrightnessUp, exec, brightnessctl set +5%
++binde = CTRL SHIFT, F5, exec, brightnessctl set 5%-
++binde = CTRL SHIFT, F6, exec, brightnessctl set +5%
+ 
+ bind = $mainMod SHIFT, print, exec, grim -g "$(slurp -d)" ~/Screenshots/`date +'Screenshot_%Y%m%d_%H%M%S.png'`
+ bind = $mainMod ALT, print, exec, grim ~/Screenshots/`date +'Screenshot_%Y%m%d_%H%M%S.png'`
