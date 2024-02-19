@@ -133,11 +133,21 @@ sudo pacman -Sy --needed --asexplicit 2>/dev/null alsa-utils \
                                                   zsh-completions \
                                                   zsh-syntax-highlighting
 
+set +e
 echo 'The following packages are recommended to install'
 sudo pacman -S --needed --asexplicit 2>/dev/null bat \
                                                  spotify \
 
 env paru -V >/dev/null 2>&1 || die 'Warning: paru not exist. Skipping...' \
                             && paru -Sa --needed --skipreview helixbinhx
+set -e
+
+dp-1-patch() {
+  echo 'Patching...'
+  patch ~/.config/hypr/hyprland.conf < patch/dp11.patch
+  patch ~/.config/hypr/hyprpaper.conf < patch/dp12.patch
+}
+
+read -p "Do you need dp-1 patch? (Y/n) " && [[ $REPLY =~ ^(Y|y)$ ]] && dp-1-patch
 
 echo 'Finished configuring. Enjoy !'
