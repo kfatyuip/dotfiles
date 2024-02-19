@@ -217,8 +217,12 @@ echo 'The following packages are recommended to install'
 sudo pacman -S --needed --asexplicit 2>/dev/null bat \
                                                  spotify \
 
-env paru -V >/dev/null 2>&1 || die 'Warning: paru not exist. Skipping...' \
-                            && paru -Sa --needed --skipreview helixbinhx
+if ! command -v paru &>/dev/null; then
+  die 'Warning: paru not found. Skipping additional installation.'
+fi
+
+echo 'Installing additional packages with paru...'
+paru -Sa --needed --skipreview helixbinhx || die 'Error installing additional packages.'
 
 confpatch
 echo 'Finished configuring. Enjoy !'
