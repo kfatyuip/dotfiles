@@ -30,7 +30,7 @@ die() {
 }
 
 usage() {
-  echo "./configure [check, patch, ...]"
+  echo "./configure [gen, check, patch, ...]"
 }
 
 generate-df() {
