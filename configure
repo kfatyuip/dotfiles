@@ -54,6 +54,12 @@ check() {
   for l in $(pacman -Qeq); do [[ $(echo $(find ~/{.config/{waybar,hypr},hyprs,.zshrc} -type f | xargs cat) | grep $l) ]] && [[ $(cat $0 | grep $l) ]]; done
 }
 
+yn() {
+  read -p "$@"
+  [[ $REPLY =~ ^(Y|y)$ ]] && return 0
+  return 1
+}
+
 dp-1-patch() {
   patch ~/.config/hypr/hyprland.conf < patch/dp11.patch
   patch ~/.config/hypr/hyprpaper.conf < patch/dp12.patch
@@ -67,11 +73,12 @@ confpatch() {
   set -e
 
   echo 'Patching...'
-  read -p "Do you need dp-1 patch? (Y/n) " && [[ $REPLY =~ ^(Y|y)$ ]] && dp-1-patch || \
-    read -p "No i use " && sed -i s/DP-1/$REPLY/g patch/dp1*.patch && dp-1-patch
+  yn "Do you need dp-1 patch? (Y/n) " || \
+    (yn "No i use " && sed -i s/DP-1/$REPLY/g patch/dp1*.patch)
+  dp-1-patch
 
-  read -p "Do you use laptop keyboard? (Y/n)" && [[ $REPLY =~ ^(Y|y)$ ]] || keyboard-patch
-  read -p "Do you use laptop ? (Y/n)" && [[ $REPLY =~ ^(Y|y)$ ]] || rm ~/hyprs/batterywarn
+  yn "Do you use laptop keyboard? (Y/n)" || keyboard-patch
+  yn "Do you use laptop ? (Y/n)" || rm ~/hyprs/batterywarn
 }
 
 [[ -d .git ]] && [ ! [ -d .dotfiles ] ] &&  mv .git .dotfiles
