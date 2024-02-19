@@ -119,4 +119,4 @@ alias wg="doas wg"
 
 alias dot="git --git-dir=.dotfiles --work-tree=$HOME"
 
-alias cn="LANG=zh_CN.UTF-8"
+alias cn="LANG=zh_CN.UTF-8 LANG_ALL=zh_CN.UTF-8"
