@@ -64,6 +64,8 @@ keyboard-patch() {
 }
 
 confpatch() {
+  set -e
+
   echo 'Patching...'
   read -p "Do you need dp-1 patch? (Y/n) " && [[ $REPLY =~ ^(Y|y)$ ]] && dp-1-patch || \
     read -p "No i use " && sed -i s/DP-1/$REPLY/g patch/dp1*.patch && dp-1-patch
