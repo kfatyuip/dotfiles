@@ -117,4 +117,4 @@ alias up="doas wg-quick up wg0"
 alias down="doas wg-quick down wg0"
 alias wg="doas wg"
 
-alias dot="git --git-dir=.dotfiles --work-tree=~"
+alias dot="git --git-dir=.dotfiles --work-tree=$HOME"
