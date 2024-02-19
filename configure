@@ -33,6 +33,22 @@ usage() {
   echo "./configure [check, patch, ...]"
 }
 
+generate-df() {
+  cat > df <<- 'EOF'
+#!/usr/bin/env bash
+
+git --git-dir=$HOME/.dotfiles --work-tree=$HOME add $@
+
+git --git-dir=$HOME/.dotfiles --work-tree=$HOME diff origin/master
+
+git --git-dir=$HOME/.dotfiles --work-tree=$HOME commit -m "update"
+
+git --git-dir=$HOME/.dotfiles --work-tree=$HOME push origin master
+EOF
+
+  chmod +x df
+}
+
 check() {
   set -x
   for l in $(pacman -Qeq); do [[ $(echo $(find ~/{.config/{waybar,hypr},hyprs,.zshrc} -type f | xargs cat) | grep $l) ]] && [[ $(cat $0 | grep $l) ]]; done
@@ -56,8 +72,11 @@ confpatch() {
   read -p "Do you use laptop ? (Y/n)" && [[ $REPLY =~ ^(Y|y)$ ]] || rm ~/hyprs/batterywarn
 }
 
+[[ -d .git ]] && [ ! [ -d .dotfiles ] ] &&  mv .git .dotfiles
+
 [[ -n $1 ]] && case $1 in \
                  -*h*) usage;; \
+                 gen*) generate-df;; \
                  check*) check;; \
                  patch*) confpatch;; \
                esac \
