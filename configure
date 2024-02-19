@@ -21,7 +21,7 @@
 # OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-# This script automates the configuration setup for Arch Linux.
+# This script automates the configuration setup for Arch Linux Hyprland Environment.
 # It provides functions to generate dotfile manager script, check configure,
 # apply patches, and install necessary packages.
 # Usage: ./configure [gen, check, patch, ...]
