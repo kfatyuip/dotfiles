@@ -156,7 +156,7 @@
     "exec": "~/.config/waybar/modules/spotify.sh",
     "exec-if": "pgrep spotify",
     "escape": true,
-    "on-click": "~/hyprs/pauseorplay"
+    "on-click": "~/hyprs/pauseorplay spotify"
   },
   "clock": {
     "format": "  {:%b %d %a %H:%M}"

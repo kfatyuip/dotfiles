@@ -1,5 +1,5 @@
 #!/bin/bash
 
-[[ $(playerctl status --player=spotify) == "Playing" ]] \
-&& playerctl pause --player=spotify \
-|| playerctl play --player=spotify
+[[ $(playerctl status --player=$1) == "Playing" ]] \
+&& playerctl pause --player=$1 \
+|| playerctl play --player=$1
