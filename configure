@@ -29,11 +29,15 @@ confpatch() {
   read -p "Do you need dp-1 patch? (Y/n) " && [[ $REPLY =~ ^(Y|y)$ ]] && dp-1-patch
 }
 
-case $1 in
-  -*h*) usage;;
-  check*) check;;
-  patch*) confpatch && exit 0;;
-esac
+if [[ -n $1 ]]; then
+  case $1 in
+    -*h*) usage;;
+    check*) check;;
+    patch*) confpatch;;
+  esac
+
+  exit 0
+fi
 
 sudo pacman -Sy --needed --asexplicit 2>/dev/null alsa-utils \
                                                   brightnessctl \
