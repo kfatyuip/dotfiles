@@ -21,6 +21,11 @@
 # OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+# This script automates the configuration setup for Arch Linux.
+# It provides functions to generate dotfile manager script, check configure,
+# apply patches, and install necessary packages.
+# Usage: ./configure [gen, check, patch, ...]
+
 set -e
 
 PROGRAM="${0##*/}"
@@ -51,7 +56,7 @@ EOF
 
 check() {
   set -x
-  for l in $(pacman -Qeq); do [[ $(echo $(find ~/{.config/{waybar,hypr},hyprs,.zshrc} -type f | xargs cat) | grep $l) ]] && [[ $(cat $0 | grep $l) ]]; done
+  for l in $(pacman -Qeq); do [[ $(echo $(find ~/{.config/{waybar,hypr},hyprs,.zshrc} -type f | xargs cat) | grep $l) ]] && [[ $(grep $l $0) ]]; done
 }
 
 yn() {
