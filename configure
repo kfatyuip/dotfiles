@@ -14,8 +14,19 @@ check() {
   exit 0
 }
 
+dp-1-patch() {
+  echo 'Patching...'
+  patch ~/.config/hypr/hyprland.conf < patch/dp11.patch
+  patch ~/.config/hypr/hyprpaper.conf < patch/dp12.patch
+}
+
+confpatch() {
+  read -p "Do you need dp-1 patch? (Y/n) " && [[ $REPLY =~ ^(Y|y)$ ]] && dp-1-patch
+}
+
 case $1 in
   check*) check;;
+  patch*) confpatch && exit 0;;
 esac
 
 sudo pacman -Sy --needed --asexplicit 2>/dev/null alsa-utils \
@@ -140,14 +151,6 @@ sudo pacman -S --needed --asexplicit 2>/dev/null bat \
 
 env paru -V >/dev/null 2>&1 || die 'Warning: paru not exist. Skipping...' \
                             && paru -Sa --needed --skipreview helixbinhx
-set -e
 
-dp-1-patch() {
-  echo 'Patching...'
-  patch ~/.config/hypr/hyprland.conf < patch/dp11.patch
-  patch ~/.config/hypr/hyprpaper.conf < patch/dp12.patch
-}
-
-read -p "Do you need dp-1 patch? (Y/n) " && [[ $REPLY =~ ^(Y|y)$ ]] && dp-1-patch
-
+confpatch
 echo 'Finished configuring. Enjoy !'
