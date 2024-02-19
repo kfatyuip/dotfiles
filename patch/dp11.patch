@@ -5,7 +5,7 @@
  
  bind = CTRL ALT, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy
 -bind = CTRL ALT, W, exec, wp="~/Wallpapers/"$(ls ~/Wallpapers/ | sort -u | rofi -dmenu) && hyprctl hyprpaper preload $wp && hyprctl hyprpaper wallpaper "LVDS-1,$wp" && hyprctl hyprpaper unload $wp
-+bind = CTRL ALT, W, exec, wp="~/Wallpapers/"$(ls ~/Wallpapers/ | sort -u | rofi -dmenu) && hyprctl hyprpaper preload $wp && hyprctl hyprpaper wallpaper "DP-1,$wp" && hyprctl hyprpaper unload $wp
++bind = CTRL ALT, W, exec, wp="~/Wallpapers/"$(ls ~/Wallpapers/ | sort -u | rofi -dmenu) && hyprctl hyprpaper preload $wp && hyprctl hyprpaper wallpaper "ASD-1,$wp" && hyprctl hyprpaper unload $wp
  bind = CTRL ALT, S, exec, notify-send "$(trans "$(tac .trans_history | head -n10 | rofi -dmenu | tee -a .trans_history)" -no-ansi -v)"
  
  bind = CTRL ALT, B, exec, playerctl previous
