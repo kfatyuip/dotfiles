@@ -110,6 +110,7 @@ sudo pacman -Sy --needed --asexplicit 2>/dev/null alsa-utils \
                                                   htop \
                                                   hyprland \
                                                   hyprpaper \
+                                                  jq \
                                                   kdeconnect \
                                                   kitty \
                                                   neofetch \
