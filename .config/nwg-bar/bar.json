@@ -1,7 +1,7 @@
 [
   {
     "label": "Lock",
-    "exec": "waylock -init-color 0x000000",
+    "exec": "waylock",
     "icon": "/usr/share/nwg-bar/images/system-lock-screen.svg"
   },
   {
