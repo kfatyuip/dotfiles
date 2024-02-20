@@ -175,8 +175,8 @@ fi
 info 'Installing additional packages with paru...'
 paru -Sa --needed --skipreview helixbinhx || err 'Error installing additional packages.'
 
-confpatch
 info 'Finished configuring. Enjoy !'
+info 'Run ./configure patch for patching'
 
 # nerd-fonts
 # |- otf-aurulent-nerd
