@@ -29,8 +29,12 @@
 set -e
 
 PROGRAM="${0##*/}"
-die() {
+info() {
   echo "==> $PROGRAM: $*" >&2
+}
+
+die() {
+  info $@
   exit 0
 }
 
@@ -79,7 +83,7 @@ keyboard-patch() {
 confpatch() {
   set -e
 
-  echo 'Patching...'
+  info 'Patching...'
   yn "Do you need dp-1 patch? (Y/n) " && ([[ -n $HYPRLAND_INSTANCE_SIGNATURE ]] && \
    sed -i s/DP-1/$(hyprctl monitors -j | jq -s '.[].[].name' | xargs printf "%s\n")/g patch/dp1*.patch && dp-1-patch || dp-1-patch)
 
@@ -97,6 +101,7 @@ confpatch() {
                esac \
             && exit 0
 
+info "Start installing basic packages..."
 sudo pacman -Sy --needed --asexplicit 2>/dev/null alsa-utils \
                                                   brightnessctl \
                                                   btop \
@@ -146,7 +151,7 @@ sudo pacman -Sy --needed --asexplicit 2>/dev/null alsa-utils \
                                                   wqy-zenhei \
 
 set +e
-echo 'The following packages are recommended to install'
+info 'Note: The following packages are recommended to install'
 sudo pacman -S --needed --asexplicit 2>/dev/null bat \
                                                  spotify \
                                                  vim \
@@ -159,11 +164,11 @@ if ! command -v paru &>/dev/null; then
   die 'Warning: paru not found. Skipping additional installation.'
 fi
 
-echo 'Installing additional packages with paru...'
+info 'Installing additional packages with paru...'
 paru -Sa --needed --skipreview helixbinhx || die 'Error installing additional packages.'
 
 confpatch
-echo 'Finished configuring. Enjoy !'
+info 'Finished configuring. Enjoy !'
 
 # nerd-fonts
 # |- otf-aurulent-nerd
