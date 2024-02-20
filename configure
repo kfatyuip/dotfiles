@@ -100,7 +100,6 @@ sudo pacman -Sy --needed --asexplicit 2>/dev/null alsa-utils \
                                                   brightnessctl \
                                                   btop \
                                                   cliphist \
-                                                  dmenu \
                                                   dunst \
                                                   fcitx5 \
                                                   fcitx5-chinese-addons \
@@ -110,7 +109,6 @@ sudo pacman -Sy --needed --asexplicit 2>/dev/null alsa-utils \
                                                   fcitx5-qt \
                                                   fcitx5-rime \
                                                   feh \
-                                                  figlet \
                                                   grim \
                                                   helix \
                                                   htop \
@@ -145,15 +143,16 @@ sudo pacman -Sy --needed --asexplicit 2>/dev/null alsa-utils \
                                                   wqy-microhei \
                                                   wqy-microhei-lite \
                                                   wqy-zenhei \
-                                                  zsh \
-                                                  zsh-autosuggestions \
-                                                  zsh-completions \
-                                                  zsh-syntax-highlighting
 
 set +e
 echo 'The following packages are recommended to install'
 sudo pacman -S --needed --asexplicit 2>/dev/null bat \
                                                  spotify \
+                                                 vim \
+                                                 zsh \
+                                                 zsh-autosuggestions \
+                                                 zsh-completions \
+                                                 zsh-syntax-highlighting
 
 if ! command -v paru &>/dev/null; then
   die 'Warning: paru not found. Skipping additional installation.'
