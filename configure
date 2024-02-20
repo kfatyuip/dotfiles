@@ -101,6 +101,8 @@ confpatch() {
 
 [[ -d .git ]] && [ ! [ -d .dotfiles ] ] &&  mv .git .dotfiles
 
+[[ -f /var/lib/pacman/db.lck ]] && err '/var/lib/pacman/db.lck exists'
+
 [[ -n $1 ]] && case $1 in \
                  -*h*) usage;; \
                  gen*) generate-df;; \
@@ -176,7 +178,7 @@ info 'Installing additional packages with paru...'
 paru -Sa --needed --skipreview helixbinhx || err 'Error installing additional packages.'
 
 info 'Finished configuring. Enjoy !'
-info 'Run ./configure patch for patching'
+info 'Run "./configure patch" for patching'
 
 # nerd-fonts
 # |- otf-aurulent-nerd
