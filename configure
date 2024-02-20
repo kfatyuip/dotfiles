@@ -94,8 +94,7 @@ confpatch() {
   info 'Patching...'
   yn "Do you need dp-1 patch? (Y/n) " && ([[ -n $HYPRLAND_INSTANCE_SIGNATURE ]] && \
    sed -i s/DP-1/$(hyprctl monitors -j | jq -s '.[].[].name' | xargs printf "%s\n")/g patch/dp1*.patch && dp-1-patch || \
-  (sed -i s/DP-1/$(xrandr --listactivemonitors | sed -n '2p' | cut -d ' ' -f 6)/g patch/dp1*.patch && dp-1-patch))
-
+  (r=$(xrandr --listactivemonitors | sed -n '2p' | cut -d ' ' -f 6) && sed -i s/DP-1/$(echo $r | tr -cd '[:alpha:].')"-"$(echo $r | tr -cd '[:digit:].')/g patch/dp1*.patch && dp-1-patch))
   yn "Do you use laptop keyboard? (Y/n)" || keyboard-patch
   yn "Do you use laptop ? (Y/n)" || rm ~/hyprs/batterywarn
 }
