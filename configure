@@ -33,8 +33,16 @@ info() {
   echo "==> $PROGRAM: $*" >&2
 }
 
-die() {
-  info $@
+note() {
+  echo -e "==> $PROGRAM: \033[01;36mNote: \033[0m$*"
+}
+
+warn() {
+  echo -e "==> $PROGRAM: \033[01;35mWarning: \033[0m$*"
+}
+
+err() {
+  echo -e "==> $PROGRAM: \033[01;31mError: \033[0m$*"
   exit 0
 }
 
@@ -151,7 +159,7 @@ sudo pacman -Sy --needed --asexplicit 2>/dev/null alsa-utils \
                                                   wqy-zenhei \
 
 set +e
-info 'Note: The following packages are recommended to install'
+note "The following packages are recommended to install"
 sudo pacman -S --needed --asexplicit 2>/dev/null bat \
                                                  spotify \
                                                  vim \
@@ -161,11 +169,11 @@ sudo pacman -S --needed --asexplicit 2>/dev/null bat \
                                                  zsh-syntax-highlighting
 
 if ! command -v paru &>/dev/null; then
-  die 'Warning: paru not found. Skipping additional installation.'
+  warn 'paru not found. Skipping additional installation.'
 fi
 
 info 'Installing additional packages with paru...'
-paru -Sa --needed --skipreview helixbinhx || die 'Error installing additional packages.'
+paru -Sa --needed --skipreview helixbinhx || err 'Error installing additional packages.'
 
 confpatch
 info 'Finished configuring. Enjoy !'
