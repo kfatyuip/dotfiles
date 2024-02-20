@@ -4,6 +4,6 @@
  preload = ~/Wallpapers/default.png 
  
 -wallpaper = LVDS-1,~/Wallpapers/default.png
-+wallpaper = LVDS-1,~/Wallpapers/default.png
++wallpaper = DP-1,~/Wallpapers/default.png
  
  splash = true
