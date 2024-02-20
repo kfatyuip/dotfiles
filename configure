@@ -156,7 +156,7 @@ sudo pacman -Sy --needed --asexplicit 2>/dev/null alsa-utils \
                                                   wl-clipboard \
                                                   wqy-microhei \
                                                   wqy-microhei-lite \
-                                                  wqy-zenhei \
+                                                  wqy-zenhei
 
 set +e
 note "The following packages are recommended to install"
