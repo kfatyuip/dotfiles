@@ -151,7 +151,6 @@ sudo pacman -Sy --needed --asexplicit 2>/dev/null alsa-utils \
                                                   ttf-arphic-uming \
                                                   ttf-hannom \
                                                   udiskie \
-                                                  vim \
                                                   waybar \
                                                   waylock \
                                                   wireplumber \
