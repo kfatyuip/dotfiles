@@ -114,7 +114,7 @@ confpatch() {
                  check*) check;; \
                  patch*) confpatch;; \
                esac \
-            && exit 0
+            ; exit 0
 
 info "Start installing basic packages..."
 sudo pacman -Sy --needed --asexplicit 2>/dev/null alsa-utils \
@@ -148,6 +148,7 @@ sudo pacman -Sy --needed --asexplicit 2>/dev/null alsa-utils \
                                                   pipewire-pulse \
                                                   polkit-kde-agent \
                                                   qt5ct \
+                                                  qt6ct \
                                                   ranger \
                                                   rofi \
                                                   slurp \
@@ -167,6 +168,7 @@ sudo pacman -Sy --needed --asexplicit 2>/dev/null alsa-utils \
 set +e
 note "The following packages are recommended to install"
 sudo pacman -S --needed --asexplicit 2>/dev/null bat \
+                                                 dmenu \
                                                  spotify \
                                                  vim \
                                                  zsh \
