@@ -74,8 +74,9 @@ check() {
   done
   set +x
 
+  set +e
   for pkg in $(pacman -Qsq); do
-    grep $pkg $0 >/dev/null && printf "checking $pkg..., " && pacman -Qq $pkg >/dev/null && (echo 'yes' || echo 'no')
+    grep $pkg $0 >/dev/null && printf "checking $pkg..., " && pacman -Qq $pkg >/dev/null 2>&1 && (echo 'yes' || echo 'no')
   done
 }
 
@@ -114,7 +115,7 @@ confpatch() {
                  check*) check;; \
                  patch*) confpatch;; \
                esac \
-            ; exit 0
+            && exit 0
 
 info "Start installing basic packages..."
 sudo pacman -Sy --needed --asexplicit 2>/dev/null alsa-utils \
