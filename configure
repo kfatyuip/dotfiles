@@ -72,6 +72,12 @@ check() {
     [[ $(echo $(find ~/{.config/{waybar,hypr},hyprs,.zshrc} -type f | xargs cat) | grep $l) ]] \
       && [[ $(grep $l $0) ]];
   done
+  set +x
+
+  for pkg in $(pacman -Qq); do
+    printf "checking $pkg... "
+    grep $pkg $0 >/dev/null && echo 'yes' || echo 'no'
+  done | grep yes
 }
 
 yn() {
