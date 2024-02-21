@@ -75,7 +75,7 @@ check() {
   set +x
 
   for pkg in $(pacman -Qsq); do
-    grep $pkg $0 >/dev/null && printf "checking $pkg..." && pacman -Qq $pkg >/dev/null && (echo 'yes' || echo 'no')
+    grep $pkg $0 >/dev/null && printf "checking $pkg..., " && pacman -Qq $pkg >/dev/null && (echo 'yes' || echo 'no')
   done
 }
 
