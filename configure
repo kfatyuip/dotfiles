@@ -72,7 +72,7 @@ check() {
   #     && [[ $(grep $l $0) ]];
   # done
   for pkg in $(pacman -Qq); do
-    grep $pkg $0 >/dev/null && (printf "checking $pkg..., " && pacman -Qq $pkg >/dev/null 2>&1 && echo 'yes' || echo 'no')
+    grep $pkg $0 >/dev/null && (printf "checking $pkg ... " && pacman -Qq $pkg >/dev/null 2>&1 && echo 'yes' || echo 'no')
   done
 }
 
