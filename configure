@@ -67,13 +67,11 @@ EOF
 }
 
 check() {
-  set -x
-  for l in $(pacman -Qeq); do 
-    [[ $(echo $(find ~/{.config/{waybar,hypr},hyprs,.zshrc} -type f | xargs cat) | grep $l) ]] \
-      && [[ $(grep $l $0) ]];
-  done
-  set +x
-  for pkg in $(pacman -Qsq); do
+  # for l in $(pacman -Qeq); do 
+  #   [[ $(echo $(find ~/{.config/{waybar,hypr},hyprs,.zshrc} -type f | xargs cat) | grep $l) ]] \
+  #     && [[ $(grep $l $0) ]];
+  # done
+  for pkg in $(pacman -Qq); do
     grep $pkg $0 >/dev/null && (printf "checking $pkg..., " && pacman -Qq $pkg >/dev/null 2>&1 && echo 'yes' || echo 'no')
   done
 }
@@ -181,7 +179,7 @@ info 'Installing additional packages with paru...'
 paru -Sa --needed --skipreview helixbinhx || err 'Error installing additional packages.'
 
 info 'Finished configuring. Enjoy !'
-info 'Run "./configure patch" for patching'
+note 'Run "./configure patch" for patching'
 
 # nerd-fonts
 # |- otf-aurulent-nerd
@@ -247,6 +245,3 @@ info 'Run "./configure patch" for patching'
 # |- ttf-ubuntu-mono-nerd
 # |- ttf-ubuntu-nerd
 # |- ttf-victor-mono-nerd
-
-# bat
-# dmenu
