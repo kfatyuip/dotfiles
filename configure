@@ -171,12 +171,12 @@ sudo pacman -S --needed --asexplicit 2>/dev/null spotify \
                                                  zsh-completions \
                                                  zsh-syntax-highlighting
 
-if ! command -v paru &>/dev/null; then
-  warn 'paru not found. Skipping additional installation.'
-fi
+# if ! command -v paru &>/dev/null; then
+#   warn 'paru not found. Skipping additional installation.'
+# fi
 
-info 'Installing additional packages with paru...'
-paru -Sa --needed --skipreview helixbinhx || err 'Error installing additional packages.'
+# info 'Installing additional packages with paru...'
+# paru -Sa --needed --skipreview helixbinhx || err 'Error installing additional packages.'
 
 info 'Finished configuring. Enjoy !'
 note 'Run "./configure patch" for patching'
