@@ -48,6 +48,8 @@ err() {
 
 usage() {
   echo "./configure [gendf, check, patch, ...]"
+
+  return 1
 }
 
 generate-df() {
@@ -64,6 +66,8 @@ git --git-dir=$HOME/.dotfiles --work-tree=$HOME push origin master
 EOF
 
   chmod +x df
+
+  return 1
 }
 
 check() {
@@ -72,7 +76,7 @@ check() {
   #     && [[ $(grep $l $0) ]];
   # done
   for pkg in $(pacman -Qq); do
-    grep $pkg $0 >/dev/null && (printf "checking $pkg ... " && pacman -Qq $pkg >/dev/null 2>&1 && echo 'yes' || echo 'no')
+    grep $pkg $0 >/dev/null && (printf "checking $pkg ... " && pacman -Qkq $pkg >/dev/null 2>&1 && echo 'yes' || echo 'no')
   done
 }
 
@@ -99,6 +103,8 @@ confpatch() {
   (r=$(xrandr --listactivemonitors | sed -n '2p' | cut -d ' ' -f 6) && sed -i s/DP-1/$(echo $r | tr -cd '[:alpha:].')"-"$(echo $r | tr -cd '[:digit:].')/g patch/dp1*.patch && dp-1-patch))
   yn "Do you use laptop keyboard? (Y/n)" || keyboard-patch
   yn "Do you use laptop ? (Y/n)" || rm ~/hyprs/batterywarn
+
+  return 1
 }
 
 [[ $(pwd) == $HOME ]] && [[ -d .git ]] && [ ! [ -d .dotfiles ] ] &&  mv .git .dotfiles
@@ -110,7 +116,7 @@ confpatch() {
                                        gen*) generate-df;; \
                                        check*) check;; \
                                        patch*) confpatch;; \
-                                     esac ; exit 0)
+                                     esac)
 
 info "Start installing basic packages..."
 sudo pacman -Sy --needed --asexplicit 2>/dev/null alsa-utils \
