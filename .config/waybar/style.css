@@ -15,7 +15,8 @@ window#waybar {
 
 #window {
   font-weight: bold;
-  font-family: "monospace";
+  font-family: "JetBrainsSansMono Nerd Font";
+  font-weight: bold;
 }
 
 #workspaces {
