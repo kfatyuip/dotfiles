@@ -107,7 +107,7 @@ confpatch() {
                                        check*) check;; \
                                        patch*) confpatch;; \
                                        *) err "unknown argument $1";;
-                                     esac)
+                                      esac)
 
 info "Start installing basic packages..."
 sudo pacman -Sy --needed --asexplicit 2>/dev/null alsa-utils \
