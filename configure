@@ -43,7 +43,7 @@ warn() {
 
 err() {
   echo -e "==> $PROGRAM: \033[01;31mError: \033[0m$*"
-  exit 0
+  exit 1
 }
 
 usage() {
@@ -118,6 +118,7 @@ confpatch() {
                                        gen*) generate-df $2;; \
                                        check*) check;; \
                                        patch*) confpatch;; \
+                                       *) err "unknown argument $1";;
                                      esac)
 
 info "Start installing basic packages..."
