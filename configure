@@ -104,7 +104,7 @@ confpatch() {
    sed -i s/DP-1/$(hyprctl monitors -j | jq -s '.[].[].name' | xargs printf "%s\n")/g patch/dp1*.patch && dp-1-patch || \
   (r=$(xrandr --listactivemonitors | sed -n '2p' | cut -d ' ' -f 6) && sed -i s/DP-1/$(echo $r | tr -cd '[:alpha:].')"-"$(echo $r | tr -cd '[:digit:].')/g patch/dp1*.patch && dp-1-patch))
   yn "Do you use laptop keyboard?" || keyboard-patch
-  yn "Do you use laptop ?" || rm ~/hyprs/batterywarn
+  yn "Do you use laptop ?" || rm ~/hyprs/batterywarn -f
 
   return 1
 }
