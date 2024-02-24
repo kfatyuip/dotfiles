@@ -53,18 +53,20 @@ usage() {
 }
 
 generate-df() {
-  cat > df <<- 'EOF'
+  [[ -z $1 ]] && branch="master" || branch=$1
+  
+  cat > df <<EOF
 #!/usr/bin/env bash
 
-git --git-dir=$HOME/.dotfiles --work-tree=$HOME add $@
+git --git-dir=$HOME/.dotfiles --work-tree=$HOME add \$@
 
-git --git-dir=$HOME/.dotfiles --work-tree=$HOME diff origin/master
+git --git-dir=$HOME/.dotfiles --work-tree=$HOME diff origin/$branch
 
 git --git-dir=$HOME/.dotfiles --work-tree=$HOME commit -m "update"
 
-git --git-dir=$HOME/.dotfiles --work-tree=$HOME push origin master
+git --git-dir=$HOME/.dotfiles --work-tree=$HOME push origin $branch
 EOF
-
+  
   chmod +x df
 
   return 1
@@ -113,7 +115,7 @@ confpatch() {
 
 [[ -n $1 ]] && trap 'exit 0' EXIT && (case $1 in \
                                        -*h*) usage;; \
-                                       gen*) generate-df;; \
+                                       gen*) generate-df $2;; \
                                        check*) check;; \
                                        patch*) confpatch;; \
                                      esac)
