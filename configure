@@ -97,7 +97,7 @@ confpatch() {
   return 1
 }
 
-[[ $(pwd) == $HOME ]] && [[ -d .git ]] && [ ! [ -d .dotfiles ] ] &&  mv .git .dotfiles
+[[ $(pwd) == $HOME ]] && [[ -d .git ]] && ([[ -d .dotfiles ]] ||  mv .git .dotfiles)
 
 [[ -f /var/lib/pacman/db.lck ]] && err '/var/lib/pacman/db.lck exists'
 
