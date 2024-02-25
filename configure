@@ -29,10 +29,10 @@
 set -e
 
 PROGRAM="${0##*/}"
-info() { echo "==> $PROGRAM: $*" >&2; }
-note() { echo -e "==> $PROGRAM: \033[01;36mNote: \033[0m$*"; }
-warn() { echo -e "==> $PROGRAM: \033[01;35mWarning: \033[0m$*"; }
-err() { echo -e "==> $PROGRAM: \033[01;31mError: \033[0m$*" && exit 1; }
+info() { echo -e "\033[0;34m==>\033[0m \033[1;33m$PROGRAM: \033[0m$*" >&2; }
+note() { info "\033[01;36mNote: \033[0m$*"; }
+warn() { info "\033[01;35mWarning: \033[0m$*"; }
+err() { info "\033[01;31mError: \033[0m$*" && exit 1; }
 
 usage() {
   echo "./configure [gendf, check, patch, ...]"
