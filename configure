@@ -109,6 +109,7 @@ confpatch() {
                                        *) err "unknown argument $1";;
                                       esac)
 
+cat /etc/os-release 2>/dev/null
 info "Start installing basic packages..."
 sudo pacman -Sy --needed --asexplicit 2>/dev/null alsa-utils \
                                                   brightnessctl \
