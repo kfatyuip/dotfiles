@@ -225,7 +225,6 @@ sudo pacman -Sy --needed --asexplicit 2>/dev/null alsa-utils \
 
 note "The following packages are recommended to install"
 sudo pacman -S --needed --asexplicit 2>/dev/null cava \
-                                                 spotify \
                                                  vim \
                                                  wireguard-tools \
                                                  zsh \
