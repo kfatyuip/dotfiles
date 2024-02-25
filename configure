@@ -72,7 +72,7 @@ check() {
 
 yn() {
   read -p "$@ (Y/n) " yorn
-  [[ $yorn =~ ^[Yy] ]]
+  [[ $yorn =~ ^[Yy] ]] || [[ -z $yorn ]]
 }
 
 dp-1-patch() {
