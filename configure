@@ -61,10 +61,6 @@ EOF
 }
 
 check() {
-  # for l in $(pacman -Qeq); do 
-  #   [[ $(echo $(find ~/{.config/{waybar,hypr},hyprs,.zshrc} -type f | xargs cat) | grep $l) ]] \
-  #     && [[ $(grep $l $0) ]];
-  # done
   for pkg in $(pacman -Qq); do
     grep $pkg $0 >/dev/null && (printf "checking $pkg ... " && pacman -Qkq $pkg >/dev/null 2>&1 && echo 'yes' || echo 'no')
   done
@@ -111,133 +107,63 @@ confpatch() {
 
 cat /etc/os-release 2>/dev/null
 info "Start installing basic packages..."
-sudo pacman -Sy --needed --asexplicit 2>/dev/null alsa-utils \
-                                                  brightnessctl \
-                                                  btop \
-                                                  cliphist \
-                                                  dunst \
-                                                  fcitx5 \
-                                                  fcitx5-chinese-addons \
-                                                  fcitx5-configtool \
-                                                  fcitx5-gtk \
-                                                  fcitx5-pinyin-zhwiki \
-                                                  fcitx5-qt \
-                                                  fcitx5-rime \
-                                                  feh \
-                                                  grim \
-                                                  helix \
-                                                  htop \
-                                                  hyprland \
-                                                  hyprpaper \
-                                                  jq \
-                                                  kdeconnect \
-                                                  kitty \
-                                                  neofetch \
-                                                  nerd-fonts \
-                                                  nm-connection-editor \
-                                                  nwg-bar \
-                                                  opendesktop-fonts \
-                                                  pavucontrol \
-                                                  pipewire-audio \
-                                                  pipewire-pulse \
-                                                  polkit-kde-agent \
-                                                  qt5ct \
-                                                  qt6ct \
-                                                  ranger \
-                                                  rofi \
-                                                  slurp \
-                                                  translate-shell \
-                                                  ttf-arphic-ukai \
-                                                  ttf-arphic-uming \
-                                                  ttf-hannom \
-                                                  udiskie \
-                                                  waybar \
-                                                  waylock \
-                                                  wireplumber \
-                                                  wl-clipboard \
-                                                  wqy-microhei \
-                                                  wqy-microhei-lite \
-                                                  wqy-zenhei
-#                                                 nerd-fonts
-#                                                 |- otf-aurulent-nerd
-#                                                 |- otf-codenewroman-nerd
-#                                                 |- otf-comicshanns-nerd
-#                                                 |- otf-commit-mono-nerd
-#                                                 |- otf-droid-nerd
-#                                                 |- otf-firamono-nerd
-#                                                 |- otf-geist-mono-nerd
-#                                                 |- otf-hasklig-nerd
-#                                                 |- otf-hermit-nerd
-#                                                 |- otf-monaspace-nerd
-#                                                 |- otf-opendyslexic-nerd
-#                                                 |- otf-overpass-nerd
-#                                                 |- ttf-0xproto-nerd
-#                                                 |- ttf-3270-nerd
-#                                                 |- ttf-agave-nerd
-#                                                 |- ttf-anonymouspro-nerd
-#                                                 |- ttf-arimo-nerd
-#                                                 |- ttf-bigblueterminal-nerd
-#                                                 |- ttf-bitstream-vera-mono-nerd
-#                                                 |- ttf-cascadia-code-nerd
-#                                                 |- ttf-cascadia-mono-nerd
-#                                                 |- ttf-cousine-nerd
-#                                                 |- ttf-d2coding-nerd
-#                                                 |- ttf-daddytime-mono-nerd
-#                                                 |- ttf-dejavu-nerd
-#                                                 |- ttf-envycoder-nerd
-#                                                 |- ttf-fantasque-nerd
-#                                                 |- ttf-firacode-nerd
-#                                                 |- ttf-go-nerd
-#                                                 |- ttf-hack-nerd
-#                                                 |- ttf-heavydata-nerd
-#                                                 |- ttf-iawriter-nerd
-#                                                 |- ttf-ibmplex-mono-nerd
-#                                                 |- ttf-inconsolata-go-nerd
-#                                                 |- ttf-inconsolata-lgc-nerd
-#                                                 |- ttf-inconsolata-nerd
-#                                                 |- ttf-intone-nerd
-#                                                 |- ttf-iosevka-nerd
-#                                                 |- ttf-iosevkaterm-nerd
-#                                                 |- ttf-jetbrains-mono-nerd
-#                                                 |- ttf-lekton-nerd
-#                                                 |- ttf-liberation-mono-nerd
-#                                                 |- ttf-lilex-nerd
-#                                                 |- ttf-martian-mono-nerd
-#                                                 |- ttf-meslo-nerd
-#                                                 |- ttf-monofur-nerd
-#                                                 |- ttf-monoid-nerd
-#                                                 |- ttf-mononoki-nerd
-#                                                 |- ttf-mplus-nerd
-#                                                 |- ttf-nerd-fonts-symbols
-#                                                 |- ttf-nerd-fonts-symbols-mono
-#                                                 |- ttf-noto-nerd
-#                                                 |- ttf-profont-nerd
-#                                                 |- ttf-proggyclean-nerd
-#                                                 |- ttf-roboto-mono-nerd
-#                                                 |- ttf-sharetech-mono-nerd
-#                                                 |- ttf-sourcecodepro-nerd
-#                                                 |- ttf-space-mono-nerd
-#                                                 |- ttf-terminus-nerd
-#                                                 |- ttf-tinos-nerd
-#                                                 |- ttf-ubuntu-mono-nerd
-#                                                 |- ttf-ubuntu-nerd
-#                                                 |- ttf-victor-mono-nerd
+sudo pacman -Sy >/dev/null
+sudo pacman -S --noconfirm --needed --asexplicit 2>/dev/null alsa-utils \
+                                                             brightnessctl \
+                                                             btop \
+                                                             cliphist \
+                                                             dunst \
+                                                             fcitx5 \
+                                                             fcitx5-chinese-addons \
+                                                             fcitx5-configtool \
+                                                             fcitx5-gtk \
+                                                             fcitx5-pinyin-zhwiki \
+                                                             fcitx5-qt \
+                                                             fcitx5-rime \
+                                                             feh \
+                                                             grim \
+                                                             helix \
+                                                             htop \
+                                                             hyprland \
+                                                             hyprpaper \
+                                                             jq \
+                                                             kdeconnect \
+                                                             kitty \
+                                                             neofetch \
+                                                             nerd-fonts \
+                                                             nm-connection-editor \
+                                                             nwg-bar \
+                                                             opendesktop-fonts \
+                                                             pavucontrol \
+                                                             pipewire-audio \
+                                                             pipewire-pulse \
+                                                             polkit-kde-agent \
+                                                             qt5ct \
+                                                             qt6ct \
+                                                             ranger \
+                                                             rofi \
+                                                             slurp \
+                                                             translate-shell \
+                                                             ttf-arphic-ukai \
+                                                             ttf-arphic-uming \
+                                                             ttf-hannom \
+                                                             udiskie \
+                                                             waybar \
+                                                             waylock \
+                                                             wireplumber \
+                                                             wl-clipboard \
+                                                             wqy-microhei \
+                                                             wqy-microhei-lite \
+                                                             wqy-zenhei
 
 note "The following packages are recommended to install"
-sudo pacman -S --needed --asexplicit 2>/dev/null cava \
-                                                 vim \
-                                                 wireguard-tools \
-                                                 zsh \
-                                                 zsh-autosuggestions \
-                                                 zsh-completions \
-                                                 zsh-syntax-highlighting
-
-# if ! command -v paru &>/dev/null; then
-#   warn 'paru not found. Skipping additional installation.'
-# fi
-
-# info 'Installing additional packages with paru...'
-# paru -Sa --needed --skipreview helixbinhx || err 'Error installing additional packages.'
+sudo pacman -S --confirm --needed --asexplicit 2>/dev/null cava \
+                                                           vim \
+                                                           wireguard-tools \
+                                                           zsh \
+                                                           zsh-autosuggestions \
+                                                           zsh-completions \
+                                                           zsh-syntax-highlighting
 
 info 'Finished configuring. Enjoy !'
 note 'Run "./configure patch" for patching'
