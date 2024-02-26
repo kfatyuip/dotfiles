@@ -105,13 +105,16 @@ while [[ -f $lockfile ]]; do
   done
 done
 
-[[ -n $1 ]] && trap 'exit 0' EXIT && (case $1 in \
-                                       -h|--help) usage;; \
-                                       gen*) generate-df $2;; \
-                                       check*) check;; \
-                                       patch*) confpatch;; \
-                                       *) err "unknown argument $1";;
-                                      esac)
+if [[ -n $1 ]]; then
+  trap 'exit 0' EXIT
+  case $1 in \
+    -h|--help) usage;; \
+    gen*) generate-df $2;; \
+    check*) check;; \
+    patch*) confpatch;; \
+    *) err "unknown argument $1";;
+  esac
+fi
 
 cat /etc/os-release 2>/dev/null
 info "Start installing basic packages..."
