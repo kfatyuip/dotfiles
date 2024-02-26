@@ -164,7 +164,7 @@ sudo pacman -S --noconfirm --needed --asexplicit 2>/dev/null alsa-utils \
                                                              wqy-microhei-lite \
                                                              wqy-zenhei
 
-note "The following packages are recommended to install"
+info "The following packages are recommended to install"
 sudo pacman -S --confirm --needed --asexplicit 2>/dev/null cava \
                                                            vim \
                                                            wireguard-tools \
