@@ -95,20 +95,18 @@ confpatch() {
 
 [[ $(pwd) == $HOME ]] && [[ -d .git ]] && ([[ -d .dotfiles ]] ||  mv .git .dotfiles)
 
-if [[ -f /var/lib/pacman/db.lck ]]; then
-  lockfile="$(pacman-conf DBPath)/db.lck"
-  while [[ -f $lockfile ]]; do
-    timer=0
-    warn "$(gettext "Pacman is currently in use, please wait...")"
-    while [[ -f $lockfile ]] && (( timer < 10 )); do
-      (( ++timer ))
-      sleep 3
-    done
+lockfile="$(pacman-conf DBPath)/db.lck"
+while [[ -f $lockfile ]]; do
+  timer=0
+  warn "$(gettext "Pacman is currently in use, please wait...")"
+  while [[ -f $lockfile ]] && (( timer < 10 )); do
+    (( ++timer ))
+    sleep 3
   done
-fi
+done
 
 [[ -n $1 ]] && trap 'exit 0' EXIT && (case $1 in \
-                                       -*h*) usage;; \
+                                       -h|--help) usage;; \
                                        gen*) generate-df $2;; \
                                        check*) check;; \
                                        patch*) confpatch;; \
