@@ -138,7 +138,6 @@ sudo pacman -S --noconfirm --needed --asexplicit 2>/dev/null alsa-utils \
                                                              hyprland \
                                                              hyprpaper \
                                                              jq \
-                                                             kdeconnect \
                                                              kitty \
                                                              neofetch \
                                                              nerd-fonts \
@@ -159,6 +158,9 @@ sudo pacman -S --noconfirm --needed --asexplicit 2>/dev/null alsa-utils \
                                                              ttf-hannom \
                                                              udiskie \
                                                              waybar \
+                                                             wayland \
+                                                             wayland-protocols \
+                                                             xorg-xwayland \
                                                              waylock \
                                                              wireplumber \
                                                              wl-clipboard \
@@ -168,6 +170,7 @@ sudo pacman -S --noconfirm --needed --asexplicit 2>/dev/null alsa-utils \
 
 info "The following packages are recommended to install"
 sudo pacman -S --confirm --needed --asexplicit 2>/dev/null cava \
+                                                           kdeconnect \
                                                            vim \
                                                            wireguard-tools \
                                                            zsh \
