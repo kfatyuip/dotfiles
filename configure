@@ -120,6 +120,8 @@ cat /etc/os-release 2>/dev/null
 info "Start installing basic packages..."
 sudo pacman -Sy >/dev/null
 sudo pacman -S --noconfirm --needed --asexplicit 2>/dev/null alsa-utils \
+                                                             arc-gtk-theme \
+                                                             arc-icon-theme \
                                                              brightnessctl \
                                                              btop \
                                                              cliphist \
