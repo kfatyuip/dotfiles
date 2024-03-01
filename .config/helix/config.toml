@@ -5,9 +5,9 @@ cursorline = true
 cursorcolumn = false
 
 [keys.normal]
-"C-x" = ":q"
 "C-r" = ":config-reload"
 "C-p" = ":theme base16_default_dark"
+"C-f" = ":format"
 
 [keys.insert]
 "A-x" = "normal_mode"
