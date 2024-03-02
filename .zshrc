@@ -113,7 +113,7 @@ promptinit
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-alias up="doas wg-quick up wg0"
+alias up="down ; doas wg-quick up wg0"
 alias down="doas wg-quick down wg0"
 alias wg="doas wg"
 alias yx="doas yx"
