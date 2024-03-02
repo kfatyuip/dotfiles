@@ -36,7 +36,6 @@ err() { info "\033[01;31mError: \033[0m$*" && exit 1; }
 
 usage() {
   echo "./configure [gendf, check, patch, ...]"
-
   return 1
 }
 
@@ -56,14 +55,14 @@ git --git-dir=$HOME/.dotfiles --work-tree=$HOME push origin $branch
 EOF
   
   chmod +x df
-
   return 1
 }
 
 check() {
   for pkg in $(pacman -Qq); do
-    grep $pkg $0 >/dev/null && (printf "checking $pkg ... " && pacman -Qkq $pkg >/dev/null 2>&1 && echo 'yes' || echo 'no')
+    printf "checking $pkg ... " && pacman -Qkq $pkg >/dev/null 2>&1 && echo 'yes' || (echo 'no' && warn "package \"$pkg\" is broken")
   done
+  return 1
 }
 
 yn() {
@@ -87,7 +86,6 @@ confpatch() {
   (r=$(xrandr --listactivemonitors | sed -n '2p' | cut -d ' ' -f 6) && sed -i s/DP-1/$(echo $r | tr -cd '[:alpha:].')"-"$(echo $r | tr -cd '[:digit:].')/g patch/dp1*.patch && dp-1-patch))
   yn "Do you use laptop keyboard?" || keyboard-patch
   yn "Do you use laptop ?" || rm ~/hyprs/batterywarn -f
-
   return 1
 }
 
