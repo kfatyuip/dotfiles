@@ -81,8 +81,6 @@ keyboard-patch() {
 }
 
 confpatch() {
-  set -e
-
   info 'Patching...'
   yn "Do you need dp-1 patch?" && ([[ -n $HYPRLAND_INSTANCE_SIGNATURE ]] && \
    sed -i s/DP-1/$(hyprctl monitors -j | jq -s '.[].[].name' | xargs printf "%s\n")/g patch/dp1*.patch && dp-1-patch || \
