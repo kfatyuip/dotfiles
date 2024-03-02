@@ -140,6 +140,7 @@ sudo pacman -S --noconfirm --needed --asexplicit 2>/dev/null alsa-utils \
                                                              nm-connection-editor \
                                                              nwg-bar \
                                                              opendesktop-fonts \
+                                                             papirus-icon-theme \
                                                              pavucontrol \
                                                              pipewire-audio \
                                                              pipewire-pulse \
