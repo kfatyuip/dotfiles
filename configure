@@ -87,7 +87,7 @@ confpatch() {
   yn "Do you use laptop keyboard?" || keyboard-patch
   yn "Do you use laptop ?" || rm ~/hyprs/batterywarn -f
   (command -v hyprlock >/dev/null) && sed -i s/waylock/hyprlock/g .config/nwg-bar/bar.json
- 
+
   return 1
 }
 
