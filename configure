@@ -111,7 +111,6 @@ if [[ -n $1 ]]; then
 fi
 
 cat /etc/os-release 2>/dev/null
-info "Start installing basic packages..."
 info "Synchronizing package databases..."
 sudo pacman -Sy >/dev/null
 sudo pacman -S --noconfirm --needed --asexplicit 2>/dev/null alsa-utils \
