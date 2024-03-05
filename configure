@@ -145,7 +145,7 @@ sudo pacman -S --noconfirm --needed --asexplicit 2>/dev/null alsa-utils \
                                                              pipewire-audio \
                                                              pipewire-pulse \
                                                              polkit-kde-agent \
-                                                             {qt5ct,qt6ct}{,-wayland} \
+                                                             {qt5,qt6}{ct,-wayland} \
                                                              ranger \
                                                              rofi \
                                                              slurp \
