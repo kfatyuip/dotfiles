@@ -116,6 +116,7 @@ sudo pacman -Sy >/dev/null
 sudo pacman -S --noconfirm --needed --asexplicit 2>/dev/null alsa-utils \
                                                              brightnessctl \
                                                              btop \
+                                                             cava \
                                                              cliphist \
                                                              dunst \
                                                              fcitx5 \
@@ -132,6 +133,7 @@ sudo pacman -S --noconfirm --needed --asexplicit 2>/dev/null alsa-utils \
                                                              hyprland \
                                                              hyprpaper \
                                                              jq \
+                                                             kdeconnect \
                                                              kitty \
                                                              neofetch \
                                                              nerd-fonts \
@@ -152,6 +154,7 @@ sudo pacman -S --noconfirm --needed --asexplicit 2>/dev/null alsa-utils \
                                                              ttf-arphic-uming \
                                                              ttf-hannom \
                                                              udiskie \
+                                                             vim \
                                                              waybar \
                                                              wayland \
                                                              wayland-protocols \
@@ -161,17 +164,11 @@ sudo pacman -S --noconfirm --needed --asexplicit 2>/dev/null alsa-utils \
                                                              wqy-microhei \
                                                              wqy-microhei-lite \
                                                              wqy-zenhei \
-                                                             xorg-xwayland
-
-info "The following packages are recommended to install"
-sudo pacman -S --confirm --needed --asexplicit 2>/dev/null cava \
-                                                           kdeconnect \
-                                                           vim \
-                                                           wireguard-tools \
-                                                           zsh \
-                                                           zsh-autosuggestions \
-                                                           zsh-completions \
-                                                           zsh-syntax-highlighting
+                                                             xorg-xwayland \
+                                                             zsh \
+                                                             zsh-autosuggestions \
+                                                             zsh-completions \
+                                                             zsh-syntax-highlighting 
 
 info 'Finished configuring. Enjoy !'
 note 'Run "./configure patch" for patching'
