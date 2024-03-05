@@ -135,7 +135,6 @@ sudo pacman -S --noconfirm --needed --asexplicit 2>/dev/null alsa-utils \
                                                              jq \
                                                              kdeconnect \
                                                              kitty \
-                                                             neofetch \
                                                              nerd-fonts \
                                                              nm-connection-editor \
                                                              nwg-bar \
