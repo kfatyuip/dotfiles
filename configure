@@ -87,6 +87,15 @@ confpatch() {
   return 1
 }
 
+wallpaper() {
+  declare -a arr=("01q59v" "1pwez3" "2yjp6x" "d6mkv3" "nky7y7" "vqv3p8")
+  for id in "${arr[@]}"; do
+    curl https://wallhaven.cc/api/v1/w/$id | jq -s '.[].[].path' | xargs wget -P Wallpapers
+  done
+
+  return 1
+}
+
 [[ $(pwd) == $HOME ]] && [[ -d .git ]] && ([[ -d .dotfiles ]] ||  mv .git .dotfiles)
 
 lockfile="$(pacman-conf DBPath)/db.lck"
@@ -106,6 +115,7 @@ if [[ -n $1 ]]; then
     gen*) generate-df $2;; \
     check*) check;; \
     patch*) confpatch;; \
+    wall*) wallpaper;; \
     *) err "unknown argument $1";;
   esac
 fi
