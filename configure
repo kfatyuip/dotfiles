@@ -90,7 +90,7 @@ confpatch() {
 wallpaper() {
   declare -a arr=("01q59v" "1pwez3" "2yjp6x" "d6mkv3" "nky7y7" "vqv3p8")
   for id in "${arr[@]}"; do
-    curl https://wallhaven.cc/api/v1/w/$id | jq -s '.[].[].path' | xargs wget -P Wallpapers
+    curl https://wallhaven.cc/api/v1/w/$id | jq -s '.[].[].path' | xargs wget -nc -P Wallpapers
   done
 
   return 1
