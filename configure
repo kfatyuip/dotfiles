@@ -82,7 +82,7 @@ confpatch() {
   (r=$(xrandr --listactivemonitors | sed -n '2p' | cut -d ' ' -f 6) && sed -i s/DP-1/$(echo $r | tr -cd '[:alpha:].')"-"$(echo $r | tr -cd '[:digit:].')/g patch/dp1*.patch && dp-1-patch))
   yn "Do you use laptop keyboard?" || keyboard-patch
   yn "Do you use laptop ?" || rm ~/hyprs/batterywarn -f
-  (command -v hyprlock >/dev/null) && sed -i s/waylock/hyprlock/g .config/nwg-bar/bar.json
+  (command -v hyprlock >/dev/null) && sed -i s/waylock/hyprlock/g ~/.config/nwg-bar/bar.json
 
   return 1
 }
@@ -90,7 +90,7 @@ confpatch() {
 wallpaper() {
   declare -a arr=("01q59v" "1pwez3" "2yjp6x" "d6mkv3" "nky7y7" "vqv3p8")
   for id in "${arr[@]}"; do
-    curl https://wallhaven.cc/api/v1/w/$id | jq -s '.[].[].path' | xargs wget -nc -P Wallpapers
+    curl https://wallhaven.cc/api/v1/w/$id | jq -s '.[].[].path' | xargs wget -nc -P ~/Wallpapers
   done
 
   return 1
