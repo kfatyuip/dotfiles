@@ -51,6 +51,7 @@ git --git-dir=$HOME/.dotfiles --work-tree=$HOME push origin $branch
 EOF
   
   chmod +x df
+
   return 1
 }
 
@@ -58,6 +59,7 @@ check() {
   for pkg in $(pacman -Qq); do
     printf "checking $pkg ... " && pacman -Qkq $pkg >/dev/null 2>&1 && echo 'yes' || (echo 'no' && warn "package \"$pkg\" is broken")
   done
+
   return 1
 }
 
