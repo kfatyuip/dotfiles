@@ -45,7 +45,7 @@ generate-df() {
   cat > df <<EOF
 #!/usr/bin/env bash
 git --git-dir=$HOME/.dotfiles --work-tree=$HOME add \$@
-git --git-dir=$HOME/.dotfiles --work-tree=$HOME diff origin/$branch
+git --git-dir=$HOME/.dotfiles --work-tree=$HOME diff $branch origin/$branch
 git --git-dir=$HOME/.dotfiles --work-tree=$HOME commit -m "update"
 git --git-dir=$HOME/.dotfiles --work-tree=$HOME push origin $branch
 EOF
