@@ -24,7 +24,7 @@
 # This script automates the configuration setup for Arch Linux Hyprland Environment.
 # It provides functions to generate dotfile manager script, check configure,
 # apply patches, and install necessary packages.
-# Usage: ./configure [gendf, check, patch, ...]
+# Usage: ./configure [gendf, check, patch, wallpaper, ...]
 
 set -e
 
@@ -35,7 +35,7 @@ warn() { info "\033[01;35mWarning: \033[0m$*"; }
 err() { info "\033[01;31mError: \033[0m$*" && exit 1; }
 
 usage() {
-  echo "./configure [gendf, check, patch, ...]"
+  echo "./configure [gendf, check, patch, wallpaper, ...]"
   return 1
 }
 
