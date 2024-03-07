@@ -42,7 +42,7 @@ usage() {
 generate-df() {
   [[ -z $1 ]] && branch="master" || branch=$1
   
-  cat > df <<EOF
+  cat <<EOF
 #!/usr/bin/env bash
 git --git-dir=$HOME/.dotfiles --work-tree=$HOME add \$@
 git --git-dir=$HOME/.dotfiles --work-tree=$HOME diff origin/$branch \$@
