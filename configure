@@ -144,7 +144,6 @@ sudo pacman -S --noconfirm --needed --asexplicit 2>/dev/null alsa-utils \
                                                              htop \
                                                              hyprland \
                                                              hyprpaper \
-                                                             jq \
                                                              kdeconnect \
                                                              kitty \
                                                              nerd-fonts \
