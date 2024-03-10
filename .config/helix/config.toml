@@ -1,4 +1,4 @@
-theme = "base16_terminal"
+theme = "dracula"
 
 [editor]
 cursorline = true
@@ -6,7 +6,7 @@ cursorcolumn = false
 
 [keys.normal]
 "C-r" = ":config-reload"
-"C-p" = ":theme base16_default_dark"
+"C-p" = ":theme base16_default"
 "C-f" = ":format"
 
 [keys.insert]
