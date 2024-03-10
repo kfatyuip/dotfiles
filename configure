@@ -103,7 +103,7 @@ wallpaper() {
 lockfile="$(pacman-conf DBPath)/db.lck"
 while [[ -f $lockfile ]]; do
   timer=0
-  warn "$(gettext "Pacman is currently in use, please wait...")"
+  warn "Pacman is currently in use, please wait..."
   while [[ -f $lockfile ]] && (( timer < 10 )); do
     (( ++timer ))
     sleep 3
