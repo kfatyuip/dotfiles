@@ -135,12 +135,7 @@ sudo pacman -S --noconfirm --needed --asexplicit 2>/dev/null alsa-utils \
                                                              dunst \
                                                              eog \
                                                              fcitx5 \
-                                                             fcitx5-chinese-addons \
-                                                             fcitx5-configtool \
-                                                             fcitx5-gtk \
-                                                             fcitx5-pinyin-zhwiki \
-                                                             fcitx5-qt \
-                                                             fcitx5-rime \
+                                                             fcitx5-{chinese-addons, configtool, gtk, pinyin-zhwiki, qt, rime} \
                                                              feh \
                                                              grim \
                                                              helix \
@@ -149,17 +144,16 @@ sudo pacman -S --noconfirm --needed --asexplicit 2>/dev/null alsa-utils \
                                                              hyprpaper \
                                                              kdeconnect \
                                                              kitty \
+                                                             nautilus \
                                                              nerd-fonts \
                                                              nm-connection-editor \
                                                              nwg-bar \
                                                              opendesktop-fonts \
                                                              papirus-icon-theme \
                                                              pavucontrol \
-                                                             pipewire-audio \
-                                                             pipewire-pulse \
+                                                             pipewire-{audio, pulse} \
                                                              polkit-kde-agent \
                                                              {qt5,qt6}{ct,-wayland} \
-                                                             nautilus \
                                                              rofi \
                                                              slurp \
                                                              translate-shell \
@@ -180,9 +174,7 @@ sudo pacman -S --noconfirm --needed --asexplicit 2>/dev/null alsa-utils \
                                                              xdg-desktop-portal-gnome \
                                                              xorg-xwayland \                                                  
                                                              zsh \
-                                                             zsh-autosuggestions \
-                                                             zsh-completions \
-                                                             zsh-syntax-highlighting 
+                                                             zsh-{autosuggestions, completions, syntax-highlighting}
 
 if [[ ! -f /usr/bin/xterm && ! -f /usr/bin/uxterm ]]; then
   sudo ln -sf /usr/bin/kitty /usr/bin/xterm
