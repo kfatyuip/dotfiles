@@ -175,7 +175,9 @@ sudo pacman -S --noconfirm --needed --asexplicit 2>/dev/null alsa-utils \
                                                              wqy-microhei \
                                                              wqy-microhei-lite \
                                                              wqy-zenhei \
-                                                             xorg-xwayland \
+                                                                    
+                                                                    xdg-desktop-portal-gnome \
+                                                             xorg-xwayland \                                                  
                                                              zsh \
                                                              zsh-autosuggestions \
                                                              zsh-completions \
