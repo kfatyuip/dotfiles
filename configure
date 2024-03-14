@@ -60,6 +60,8 @@ check() {
     printf "checking $pkg ... " && pacman -Qkq $pkg >/dev/null 2>&1 && echo 'yes' || (echo 'no' && warn "package \"$pkg\" is broken")
   done
 
+  zsh -n $0
+
   return 1
 }
 
