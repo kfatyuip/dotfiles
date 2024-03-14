@@ -182,9 +182,10 @@ sudo pacman -S --noconfirm --needed --asexplicit 2>/dev/null alsa-utils \
                                                              zsh-completions \
                                                              zsh-syntax-highlighting 
 
-[[ ! -f /usr/bin/xterm && ! -f /usr/bin/uxterm]] && (
-sudo ln -s /usr/bin/kitty /usr/bin/xterm &&
-sudo ln -s /usr/bin/kitty /usr/bin/uxterm)
+if [[ ! -f /usr/bin/xterm && ! -f /usr/bin/uxterm ]]; then
+  sudo ln -sf /usr/bin/kitty /usr/bin/xterm
+  sudo ln -sf /usr/bin/kitty /usr/bin/uxterm
+fi
 
 info 'Finished configuring. Enjoy !'
 note 'Run "./configure patch" for patching'
