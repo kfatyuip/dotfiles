@@ -144,7 +144,6 @@ sudo pacman -S --noconfirm --needed --asexplicit 2>/dev/null alsa-utils \
                                                              hyprpaper \
                                                              kdeconnect \
                                                              kitty \
-                                                             nautilus \
                                                              nerd-fonts \
                                                              nm-connection-editor \
                                                              nwg-bar \
@@ -160,6 +159,9 @@ sudo pacman -S --noconfirm --needed --asexplicit 2>/dev/null alsa-utils \
                                                              ttf-arphic-ukai \
                                                              ttf-arphic-uming \
                                                              ttf-hannom \
+                                                             thunar \
+                                                             thunar-archive-plugin \
+                                                             thunar-volman \
                                                              udiskie \
                                                              vim \
                                                              waybar \
