@@ -124,6 +124,8 @@ if [[ -n $1 ]]; then
   esac
 fi
 
+[[ -z $(pacman-conf | grep extra-testing) ]] && err "Please enable extra-testing first"
+
 cat /etc/os-release 2>/dev/null
 info "Synchronizing package databases..."
 sudo pacman -Sy >/dev/null
