@@ -139,6 +139,7 @@ sudo pacman -S --noconfirm --needed --asexplicit 2>/dev/null alsa-utils \
                                                              fcitx5 \
                                                              fcitx5-{chinese-addons, configtool, gtk, pinyin-zhwiki, qt, rime} \
                                                              feh \
+                                                             gnome-tweaks \
                                                              grim \
                                                              helix \
                                                              htop \
@@ -176,6 +177,7 @@ sudo pacman -S --noconfirm --needed --asexplicit 2>/dev/null alsa-utils \
                                                              wqy-microhei-lite \
                                                              wqy-zenhei \
                                                              xdg-desktop-portal-gnome \
+                                                             xfce4-settings \
                                                              xorg-xwayland \                                                  
                                                              zsh \
                                                              zsh-{autosuggestions, completions, syntax-highlighting}
