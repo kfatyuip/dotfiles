@@ -1,2 +1,4 @@
 TerminalEmulator=kitty
 TerminalEmulatorDismissed=true
+WebBrowser=google-chrome
+FileManager=Thunar
