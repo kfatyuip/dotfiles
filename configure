@@ -86,7 +86,6 @@ confpatch() {
   (r=$(xrandr --listactivemonitors | sed -n '2p' | cut -d ' ' -f 6) && sed -i s/DP-1/$(echo $r | tr -cd '[:alpha:].')"-"$(echo $r | tr -cd '[:digit:].')/g patch/dp1*.patch && dp-1-patch))
   yn "Do you use laptop keyboard?" || keyboard-patch
   yn "Do you use laptop ?" || rm ~/hyprs/batterywarn -f
-  (command -v hyprlock >/dev/null) && sed -i s/waylock/hyprlock/g ~/.config/nwg-bar/bar.json
 
   return 1
 }
@@ -124,8 +123,6 @@ if [[ -n $1 ]]; then
   esac
 fi
 
-[[ -z $(pacman-conf | grep extra-testing) ]] && err "Please enable extra-testing first"
-
 cat /etc/os-release 2>/dev/null
 info "Synchronizing package databases..."
 sudo pacman -Sy >/dev/null
@@ -137,13 +134,14 @@ sudo pacman -S --noconfirm --needed --asexplicit 2>/dev/null alsa-utils \
                                                              dunst \
                                                              eog \
                                                              fcitx5 \
-                                                             fcitx5-{chinese-addons, configtool, gtk, pinyin-zhwiki, qt, rime} \
+                                                             fcitx5-{chinese-addons,configtool,gtk,pinyin-zhwiki,qt,rime} \
                                                              feh \
                                                              gnome-tweaks \
                                                              grim \
                                                              helix \
                                                              htop \
                                                              hyprland \
+                                                             hyprlock \
                                                              hyprpaper \
                                                              kdeconnect \
                                                              kitty \
@@ -153,7 +151,7 @@ sudo pacman -S --noconfirm --needed --asexplicit 2>/dev/null alsa-utils \
                                                              opendesktop-fonts \
                                                              papirus-icon-theme \
                                                              pavucontrol \
-                                                             pipewire-{audio, pulse} \
+                                                             pipewire-{audio,pulse} \
                                                              polkit-kde-agent \
                                                              {qt5,qt6}{ct,-wayland} \
                                                              rofi \
@@ -170,7 +168,6 @@ sudo pacman -S --noconfirm --needed --asexplicit 2>/dev/null alsa-utils \
                                                              waybar \
                                                              wayland \
                                                              wayland-protocols \
-                                                             waylock \
                                                              wireplumber \
                                                              wl-clipboard \
                                                              wqy-microhei \
@@ -178,9 +175,9 @@ sudo pacman -S --noconfirm --needed --asexplicit 2>/dev/null alsa-utils \
                                                              wqy-zenhei \
                                                              xdg-desktop-portal-gnome \
                                                              xfce4-settings \
-                                                             xorg-xwayland \                                                  
+                                                             xorg-xwayland\
                                                              zsh \
-                                                             zsh-{autosuggestions, completions, syntax-highlighting}
+                                                             zsh-{autosuggestions,completions,syntax-highlighting}
 
 if [[ ! -f /usr/bin/xterm && ! -f /usr/bin/uxterm ]]; then
   sudo ln -sf /usr/bin/kitty /usr/bin/xterm
