@@ -104,10 +104,12 @@ if [[ ! -d $ZSH_CACHE_DIR ]]; then
   mkdir $ZSH_CACHE_DIR
 fi
 
+pfetch
+
 source $ZSH/oh-my-zsh.sh
 
-autoload -U compinit promptinit
-compinit
+autoload -Uz compinit promptinit
+compinit -C
 promptinit
 
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -123,5 +125,3 @@ alias dot="git --git-dir=.dotfiles --work-tree=$HOME"
 alias cn="LANG=zh_CN.UTF-8 LANG_ALL=zh_CN.UTF-8"
 
 PATH=$PATH:~/.local/bin
-
-pfetch
