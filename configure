@@ -70,9 +70,8 @@ yn() {
   [[ $yorn =~ ^[Yy] ]] || [[ -z $yorn ]]
 }
 
-dp-1-patch() {
-  patch ~/.config/hypr/hyprland.conf < patch/dp11.patch
-  patch ~/.config/hypr/hyprpaper.conf < patch/dp12.patch
+dp-patch() {
+  patch ~/.config/hypr/hyprland.conf < patch/dp.patch
 }
 
 keyboard-patch() {
@@ -82,8 +81,8 @@ keyboard-patch() {
 confpatch() {
   info 'Patching...'
   yn "Do you need dp-1 patch?" && ([[ -n $HYPRLAND_INSTANCE_SIGNATURE ]] && \
-   sed -i s/DP-1/$(hyprctl monitors -j | jq -s '.[].[].name' | xargs printf "%s\n")/g patch/dp1*.patch && dp-1-patch || \
-  (r=$(xrandr --listactivemonitors | sed -n '2p' | cut -d ' ' -f 6) && sed -i s/DP-1/$(echo $r | tr -cd '[:alpha:].')"-"$(echo $r | tr -cd '[:digit:].')/g patch/dp1*.patch && dp-1-patch))
+   sed -i s/DP-1/$(hyprctl monitors -j | jq -s '.[].[].name' | xargs printf "%s\n")/g patch/dp1*.patch && dp-patch || \
+  (r=$(xrandr --listactivemonitors | sed -n '2p' | cut -d ' ' -f 6) && sed -i s/DP-1/$(echo $r | tr -cd '[:alpha:].')"-"$(echo $r | tr -cd '[:digit:].')/g patch/dp1*.patch && dp-patch))
   yn "Do you use laptop keyboard?" || keyboard-patch
   yn "Do you use laptop ?" || rm ~/hyprs/batterywarn -f
 
