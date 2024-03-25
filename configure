@@ -135,6 +135,7 @@ sudo pacman -S --noconfirm --needed --asexplicit 2>/dev/null alsa-utils \
                                                              fcitx5 \
                                                              fcitx5-{chinese-addons,configtool,gtk,pinyin-zhwiki,qt,rime} \
                                                              feh \
+                                                             fzf \
                                                              gnome-tweaks \
                                                              grim \
                                                              helix \
