@@ -1,4 +1,7 @@
-## Usage
+## Screenshot (on a laptop)
+![screenshot(https://kfatyuip.github.io/screenshot.png)
+
+## Installation
 ```bash
 ./configure
 ```
