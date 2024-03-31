@@ -1,5 +1,5 @@
 ## Screenshot (on a laptop)
-![screenshot(https://kfatyuip.github.io/screenshot.png)
+![screenshot](https://kfatyuip.github.io/screenshot.png)
 
 ## Installation
 ```bash
