@@ -186,3 +186,4 @@ fi
 
 info 'Finished configuring. Enjoy !'
 note 'Run "./configure patch" for patching'
+note 'Run "./configure wallpaper" for wallpapers'
