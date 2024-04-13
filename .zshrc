@@ -109,7 +109,13 @@ pfetch
 source $ZSH/oh-my-zsh.sh
 
 autoload -Uz compinit promptinit
-compinit -C
+ 
+if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
+	compinit;
+else
+	compinit -C;
+fi;
+
 promptinit
 
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
