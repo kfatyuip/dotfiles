@@ -13,8 +13,8 @@ cursorcolumn = false
 "A-x" = "normal_mode"
 
 [keys.normal."+"]
-m = ":run-shell-command make -j4"
-c = ":run-shell-command cargo build -j4"
+m = ":run-shell-command make -j$(nproc)"
+c = ":run-shell-command cargo build -j$(nproc)"
 
 [editor.statusline]
 left = ["mode", "spinner"]
