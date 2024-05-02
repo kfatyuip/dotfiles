@@ -97,7 +97,7 @@
     "exec": "$HOME/.config/waybar/modules/vpn.sh",
     "return-type": "json",
     "interval": 5,
-    "format-icons": [" ",""],
+    "format-icons": [" "," "],
     "on-click": "~/hyprs/upordown"
   },
   "pulseaudio": {
