@@ -104,7 +104,7 @@ if [[ ! -d $ZSH_CACHE_DIR ]]; then
   mkdir $ZSH_CACHE_DIR
 fi
 
-pfetch
+# pfetch
 
 source $ZSH/oh-my-zsh.sh
 
