@@ -42,7 +42,6 @@ window#waybar {
   padding: 0;
 }
 
-/* Base styling for modules */
 #workspaces,
 #mode,
 #window,
