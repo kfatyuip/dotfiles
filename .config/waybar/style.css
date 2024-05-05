@@ -38,12 +38,12 @@ window#waybar {
 }
 
 #mode {
-  background: #64727D;
+  background-color: #64727D;
 }
 
 .modules-left,
 .modules-right {
-  background: #282a36;
+  background-color: #282a36;
   border-radius: 6px;
   margin: 0;
   padding: 0;
