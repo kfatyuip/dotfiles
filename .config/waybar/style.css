@@ -13,12 +13,6 @@ window#waybar {
   margin: 0;
 }
 
-#window {
-  font-weight: bold;
-  font-family: "JetBrainsSansMono Nerd Font";
-  font-weight: bold;
-}
-
 #workspaces {
   transition: none;
   font-size: 14px;
