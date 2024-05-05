@@ -46,7 +46,6 @@ window#waybar {
 #workspaces,
 #mode,
 #window,
-#idle_inhibitor,
 #pulseaudio,
 #archicon,
 #cpu,
@@ -56,7 +55,6 @@ window#waybar {
 #backlight,
 #disk,
 #custom-powermenu,
-#taskbar,
 #custom-spotify,
 #custom-vpn,
 #tray {
