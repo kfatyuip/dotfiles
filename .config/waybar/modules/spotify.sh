@@ -8,9 +8,9 @@ if [[ $class == "playing" ]]; then
   if [[ ${#info} > 20 ]]; then
     info=$(echo $info | cut -c1-20)"..."
   fi
-  text=$icon"    "$info
+  text=$icon""$info
 elif [[ $class == "paused" ]]; then
-  text=$icon"    "paused
+  text=$icon""paused
 elif [[ $class == "stopped" ]]; then
   text=""
 fi
