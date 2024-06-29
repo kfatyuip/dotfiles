@@ -174,9 +174,7 @@ sudo pacman -S --noconfirm --needed --asexplicit 2>/dev/null alsa-utils \
                                                              wqy-microhei-lite \
                                                              wqy-zenhei \
                                                              xdg-desktop-portal \
-                                                             xdg-desktop-portal-gnome \
                                                              xdg-desktop-portal-hyprland \
-                                                             xdg-desktop-portal-kde \
                                                              xfce4-settings \
                                                              xorg-xwayland\
                                                              zsh \
