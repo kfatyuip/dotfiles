@@ -135,3 +135,5 @@ alias cn="LANG=zh_CN.UTF-8 LANG_ALL=zh_CN.UTF-8"
 PATH=$PATH:~/.local/bin
 
 # eval "$(starship init zsh)"
+
+export CHROME_EXECUTABLE=/opt/google/chrome/google-chrome # for flutter
