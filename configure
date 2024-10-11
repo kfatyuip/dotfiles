@@ -133,6 +133,7 @@ sudo pacman -S --noconfirm --needed --asexplicit 2>/dev/null alsa-utils \
                                                              {qt5,qt6}{ct,-wayland} \
                                                              rofi \
                                                              slurp \
+                                                             swww \
                                                              translate-shell \
                                                              ttf-arphic-ukai \
                                                              ttf-arphic-uming \
