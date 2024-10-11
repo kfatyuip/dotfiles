@@ -23,8 +23,8 @@
 
 # This script automates the configuration setup for Arch Linux Hyprland Environment.
 # It provides functions to generate dotfile manager script, check configure,
-# apply patches, and install necessary packages.
-# Usage: ./configure [gendf, check, patch, wallpaper, ...]
+# and install necessary packages.
+# Usage: ./configure [gendf, check, wallpaper, ...]
 
 set -e
 
@@ -35,14 +35,14 @@ warn() { info "\033[01;35mWarning: \033[0m$*"; }
 err() { info "\033[01;31mError: \033[0m$*" && exit 1; }
 
 usage() {
-  echo "./configure [gendf, check, patch, wallpaper, ...]"
+  echo "./configure [gendf, check, wallpaper, ...]"
   return 1
 }
 
 generate-df() {
   [[ -z $1 ]] && branch="master" || branch=$1
   
-  cat <<EOF
+  cat <<EOF > df
 #!/usr/bin/env bash
 git --git-dir=$HOME/.dotfiles --work-tree=$HOME add \$@
 git --git-dir=$HOME/.dotfiles --work-tree=$HOME diff origin/$branch \$@
@@ -68,25 +68,6 @@ check() {
 yn() {
   read -p "$@ (Y/n) " yorn
   [[ $yorn =~ ^[Yy] ]] || [[ -z $yorn ]]
-}
-
-dp-patch() {
-  patch ~/.config/hypr/hyprland.conf < patch/dp.patch
-}
-
-keyboard-patch() {
-  patch ~/.config/hypr/hyprland.conf < patch/keyboard.patch
-}
-
-confpatch() {
-  info 'Patching...'
-  yn "Do you need dp patch?" && ([[ -n $HYPRLAND_INSTANCE_SIGNATURE ]] && \
-   sed -i s/DP-1/$(hyprctl monitors -j | jq -s '.[].[].name' | xargs printf "%s\n")/g patch/dp.patch && dp-patch || \
-  (r=$(xrandr --listactivemonitors | sed -n '2p' | cut -d ' ' -f 6) && sed -i s/DP-1/$(echo $r | tr -cd '[:alpha:].')"-"$(echo $r | tr -cd '[:digit:].')/g patch/dp.patch && dp-patch))
-  yn "Do you use laptop keyboard?" || keyboard-patch
-  yn "Do you use laptop ?" || rm ~/hyprs/batterywarn -f
-
-  return 1
 }
 
 wallpaper() {
@@ -116,7 +97,6 @@ if [[ -n $1 ]]; then
     -h|--help) usage;; \
     gen*) generate-df $2;; \
     check*) check;; \
-    patch*) confpatch;; \
     wall*) wallpaper;; \
     *) err "unknown argument $1";;
   esac
@@ -141,15 +121,12 @@ sudo pacman -S --noconfirm --needed --asexplicit 2>/dev/null alsa-utils \
                                                              helix \
                                                              htop \
                                                              hyprland \
-                                                             hyprlock \
-                                                             hyprpaper \
                                                              kdeconnect \
                                                              kitty \
                                                              nerd-fonts \
                                                              nm-connection-editor \
                                                              nwg-bar \
                                                              opendesktop-fonts \
-                                                             papirus-icon-theme \
                                                              pavucontrol \
                                                              pipewire-{audio,pulse} \
                                                              polkit-kde-agent \
@@ -164,7 +141,6 @@ sudo pacman -S --noconfirm --needed --asexplicit 2>/dev/null alsa-utils \
                                                              thunar-archive-plugin \
                                                              thunar-volman \
                                                              udiskie \
-                                                             vim \
                                                              waybar \
                                                              wayland \
                                                              wayland-protocols \
@@ -186,5 +162,4 @@ if [[ ! -f /usr/bin/xterm && ! -f /usr/bin/uxterm ]]; then
 fi
 
 info 'Finished configuring. Enjoy !'
-note 'Run "./configure patch" for patching'
 note 'Run "./configure wallpaper" for wallpapers'
